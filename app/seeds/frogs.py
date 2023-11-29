@@ -10,7 +10,7 @@ def seed_frogs():
         age=1,
         price=100,
         stock=1,
-        pictureUrl="",
+        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/Froggy.jpg",
         description="Froggy is a frog",
         category="SMALL"
     )
@@ -22,7 +22,7 @@ def seed_frogs():
         age=3,
         price=200,
         stock=4,
-        pictureUrl="",
+        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/Froggy+Woggy.jpg",
         description="Froggy Woggy really really loves trees",
         category="SMALL"
     )
@@ -34,7 +34,7 @@ def seed_frogs():
         age=3,
         price=300000,
         stock=1,
-        pictureUrl="",
+        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/FRED.jpg",
         description="Fred is a humongous fan of the day Wednesday",
         category="HAPPY"
     )
@@ -46,7 +46,7 @@ def seed_frogs():
         age=7,
         price=50,
         stock=2,
-        pictureUrl="",
+        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/Helga.webp",
         description="Helga is always angry before her morning coffee",
         category="ANGRY"
     )
@@ -58,7 +58,7 @@ def seed_frogs():
         age=5,
         price=500,
         stock=5,
-        pictureUrl="",
+        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/George.jpg",
         description="George lives in the desert, so he is always angry",
         category="ANGRY"
     )
@@ -70,7 +70,7 @@ def seed_frogs():
         age=5,
         price=250,
         stock=7,
-        pictureUrl="",
+        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/Mikey.jpg",
         description="Mikey goes to the frog gym from 5am to 5pm every day",
         category="BIG"
     )
@@ -82,7 +82,7 @@ def seed_frogs():
         age=1,
         price=300,
         stock=1,
-        pictureUrl="",
+        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/ABSOLUTE+UNIT.jpg",
         description="SO HUGE SO BIG SO LARGE",
         category="BIG"
     )
@@ -94,7 +94,7 @@ def seed_frogs():
         age=1,
         price=100,
         stock=1,
-        pictureUrl="",
+        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/PeeWee.jpg",
         description="PeeWee loves the forest",
         category="HAPPY"
     )
@@ -106,7 +106,7 @@ def seed_frogs():
         age=2,
         price=100,
         stock=1,
-        pictureUrl="",
+        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/Shibo.png",
         description="I don't think this is a frog",
         category="BIG"
     )
@@ -118,7 +118,7 @@ def seed_frogs():
         age=7,
         price=25,
         stock=3,
-        pictureUrl="",
+        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/Eric.jpg",
         description="It is hard to find Eric most days",
         category="SMALL"
     )

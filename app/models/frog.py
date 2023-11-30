@@ -26,7 +26,7 @@ class Frog(db.Model):
     age = db.Column(db.Integer, nullable=False)
     price = db.Column(db.Integer, nullable=False)
     stock = db.Column(db.Integer, nullable=False)
-    pictureUrl = db.Column(db.String(255), nullable=True)
+    pictureUrl = db.Column(db.String(255), nullable=False)
     description = db.Column(db.Text, nullable=True)
     category = db.Column(db.Enum(CategoryEnum), nullable=False)
 

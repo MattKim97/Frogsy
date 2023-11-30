@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from flask_login import login_required
+from flask_login import login_required, current_user
 from app.models import User
 
 user_routes = Blueprint('users', __name__)
@@ -23,3 +23,15 @@ def user(id):
     """
     user = User.query.get(id)
     return user.to_dict()
+    
+@user_routes.route('/<int:id>/frogs')
+@login_required
+def user_frogs(id):
+    """
+    Query for all frogs belonging to a user and returns them in a list of frog dictionaries
+    """
+
+    if current_user.id != id:
+        return {'errors': ['Unauthorized']}, 401
+    user = User.query.get(id)
+    return {'frogs': [frog.to_dict() for frog in user.frogs]}

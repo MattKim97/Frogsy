@@ -13,6 +13,13 @@ s3 = boto3.client(
    aws_access_key_id=os.environ.get("S3_KEY"),
    aws_secret_access_key=os.environ.get("S3_SECRET")
 )
+def error_message(key,string):
+    errorMessages= {"errors":{key:[string]}}
+    return errorMessages
+
+
+def error_messages(dictionary):
+    return {"errors": dictionary}
 
 
 def get_unique_filename(filename):

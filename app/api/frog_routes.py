@@ -30,7 +30,7 @@ def new_frog():
     form = FrogForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
-    
+
     if form.validate_on_submit():
 
         image = form.data['image']
@@ -59,3 +59,53 @@ def new_frog():
         return error_messages(form.errors), 401
     else:
         return error_message("Something went wrong"), 401
+    
+@frog_routes.route('/<int:id>', methods=['PUT'])
+@login_required
+def update_frog(id):
+    """
+    Updates a frog and returns the updated frog in a dictionary
+    """
+     
+    frog = Frog.query.get(id)
+
+    form = FrogForm()
+
+    if frog.owner_id != current_user.id:
+         return error_message("Unauthorized"), 401
+     
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+
+        if form.image.data:
+
+            image = form.image.data
+
+            image.filename = get_unique_filename(image.filename)
+
+            upload = upload_file_to_s3(image)
+
+            if "url" not in upload:
+                return upload, 401
+            
+            remove_file_from_s3(frog.pictureUrl)
+
+            frog.pictureUrl = upload["url"]
+        
+        frog.name = form.data['name']
+        frog.species = form.data['species']
+        frog.gender = form.data["gender"]
+        frog.age = form.data["age"]
+        frog.price = form.data["price"]
+        frog.stock = form.data["stock"]
+        frog.description = form.data["description"]
+        frog.category = form.data["category"]
+
+        db.session.commit()
+        return frog.to_dict(scope="with_owner"), 201
+    elif form.errors:
+        return error_messages(form.errors), 401
+    else:
+        return error_message("Something went wrong"), 401
+    

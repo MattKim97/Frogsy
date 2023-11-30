@@ -107,5 +107,25 @@ def update_frog(id):
     elif form.errors:
         return error_messages(form.errors), 401
     else:
-        return error_message("Something went wrong"), 401
+        return error_message("unknown","Something went wrong"), 401
     
+@frog_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_frog(id):
+    """
+    Deletes a frog and returns a message
+    """
+    frog = Frog.query.get(id)
+
+    if frog.owner_id != current_user.id:
+        return error_message("Unauthorized"), 401
+
+    file_to_delete = remove_file_from_s3(frog.pictureUrl)
+
+    if file_to_delete is True:
+        db.session.delete(frog)
+        db.session.commit()
+
+        return {"message": "Frog deleted"}, 201
+    else:
+        return error_message("file","File deletion error"), 401

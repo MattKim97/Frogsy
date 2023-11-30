@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 639e268ab3df
+Revision ID: 875be0e7e0b4
 Revises: 
-Create Date: 2023-11-29 16:11:47.871370
+Create Date: 2023-11-29 21:21:00.275848
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '639e268ab3df'
+revision = '875be0e7e0b4'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -40,13 +40,13 @@ def upgrade():
     sa.Column('name', sa.String(length=40), nullable=False),
     sa.Column('species', sa.String(length=40), nullable=False),
     sa.Column('owner_id', sa.Integer(), nullable=False),
-    sa.Column('gender', sa.Enum('MALE', 'FEMALE', name='genderenum'), nullable=False),
+    sa.Column('gender', sa.String(length=40), nullable=False),
     sa.Column('age', sa.Integer(), nullable=False),
     sa.Column('price', sa.Integer(), nullable=False),
     sa.Column('stock', sa.Integer(), nullable=False),
     sa.Column('pictureUrl', sa.String(length=255), nullable=False),
     sa.Column('description', sa.Text(), nullable=True),
-    sa.Column('category', sa.Enum('HAPPY', 'ANGRY', 'BIG', 'SMALL', name='categoryenum'), nullable=False),
+    sa.Column('category', sa.String(length=40), nullable=False),
     sa.ForeignKeyConstraint(['owner_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )

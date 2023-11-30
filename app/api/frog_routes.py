@@ -11,7 +11,7 @@ def frogs():
     Query for all frogs and returns them in a list of frog dictionaries
     """
     frogs = Frog.query.all()
-    return {'frogs': [frog.to_dict() for frog in frogs]}
+    return {'Frogs': [frog.to_dict() for frog in frogs]}
 
 @frog_routes.route('/<int:id>')
 def frog(id):
@@ -129,3 +129,12 @@ def delete_frog(id):
         return {"message": "Frog deleted"}, 201
     else:
         return error_message("file","File deletion error"), 401
+
+@frog_routes.route('/<category>')
+def category(category):
+    """
+    Query for all frogs in a category and returns them in a list of frog dictionaries
+    """
+    frogs = Frog.query.filter(Frog.category == category).all()
+
+    return {'Frogs': [frog.to_dict() for frog in frogs]}

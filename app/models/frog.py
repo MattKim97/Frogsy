@@ -29,6 +29,7 @@ class Frog(db.Model):
     pictureUrl = db.Column(db.String(255), nullable=False)
     description = db.Column(db.Text, nullable=True)
     category = db.Column(db.String(40), nullable=False)
+    quantity = db.Column(db.Integer, default=0)
 
     owner = db.relationship("User", back_populates="frogs")
 

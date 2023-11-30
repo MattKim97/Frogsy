@@ -17,8 +17,8 @@ class User(db.Model, UserMixin):
 
     frogs = db.relationship("Frog", back_populates="owner")
 
-    cart = db.relationship("Cart", back_populates="user")
-
+    cart = db.relationship("Cart", back_populates="user", uselist=False)
+    
     @property
     def password(self):
         return self.hashed_password

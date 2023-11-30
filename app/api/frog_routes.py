@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import Frog, db
+from app.models import Frog, db, cartItem, Cart
 from app.forms import FrogForm, get_unique_filename, upload_file_to_s3, error_messages,error_message,remove_file_from_s3,remove_file_from_s3
 
 frog_routes = Blueprint('frogs', __name__)
@@ -138,3 +138,48 @@ def category(category):
     frogs = Frog.query.filter(Frog.category == category).all()
 
     return {'Frogs': [frog.to_dict() for frog in frogs]}
+
+@frog_routes.route('/<int:id>/cart', methods=['POST'])
+@login_required
+def add_to_cart(id):
+    """
+    Adds a frog to a user's cart
+    """
+    frog = Frog.query.get(id)
+
+    if frog.stock < 1:
+        return error_message("stock","Out of stock"), 401
+    
+    quantity = request.json.get('quantity', 1)
+
+        # Ensure the quantity is a positive integer
+    if not isinstance(quantity, int) or quantity < 1:
+        return error_message("quantity", "Invalid quantity"), 400
+
+    # Check if there's enough stock
+    if frog.stock < quantity:
+        return error_message("stock", "Insufficient stock"), 400
+    
+    if current_user.cart is None:
+        current_user.cart = Cart(user_id=current_user.id)
+        db.session.add(current_user.cart)
+        db.session.commit()
+    
+    
+    if current_user.cart.items is None:
+        current_user.cart.items = []
+    
+    # Check if the frog is already in the cart
+    existing_frog = next((item for item in current_user.cart.items if item.id == frog.id), None)
+    
+    if existing_frog:
+        # If the frog is already in the cart, update its quantity
+        existing_frog.quantity += quantity
+    else:
+        # If the frog is not in the cart, add it with the specified quantity
+        frog.quantity = quantity
+        current_user.cart.items.append(frog)
+
+    db.session.commit()
+
+    return current_user.cart.to_dict(scope="with_items"), 201

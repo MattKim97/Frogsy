@@ -11,7 +11,7 @@ def frogs():
     Query for all frogs and returns them in a list of frog dictionaries
     """
     frogs = Frog.query.all()
-    return {'Frogs': [frog.to_dict() for frog in frogs]}
+    return [frog.to_dict() for frog in frogs]
 
 @frog_routes.route('/<int:id>')
 def frog(id):

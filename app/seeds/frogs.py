@@ -130,7 +130,7 @@ def seed_frogs():
         age=6,
         price=75,
         stock=20,
-        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/Froggy.jpg",
+        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/Jeremy.jpg",
         description="Jeremy is a small frog, but he has a very toxic personality",
         category="small"
     )
@@ -142,7 +142,7 @@ def seed_frogs():
         age=6  ,
         price=125,
         stock=15,
-        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/Froggy+Woggy.jpg",
+        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/Stephanie.jpg",
         description="Stephanie likes to chill on a leaf, her favorite food is flies",
         category="small"
     )
@@ -154,7 +154,7 @@ def seed_frogs():
         age=3,
         price=425,
         stock=1,
-        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/FRED.jpg",
+        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/Linda.jpg",
         description="Linda is always hanging in there",
         category="big"
     )
@@ -166,7 +166,7 @@ def seed_frogs():
         age=7,
         price=225,
         stock=30,
-        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/Helga.webp",
+        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/Serena.jpg",
         description="Serena is a very red and big frog that always smells like spaghetti",
         category="big"
     )
@@ -178,7 +178,7 @@ def seed_frogs():
         age=5,
         price=500,
         stock=5,
-        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/George.jpg",
+        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/Oliver.jpg",
         description="Oliver is an angry lil boy",
         category="angry"
     )
@@ -190,7 +190,7 @@ def seed_frogs():
         age=6,
         price=525,
         stock=22,
-        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/Mikey.jpg",
+        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/Maya.jpg",
         description="Maya always silently judges your life decisions",
         category="angry"
     )
@@ -202,7 +202,7 @@ def seed_frogs():
         age=1,
         price=300,
         stock=1,
-        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/ABSOLUTE+UNIT.jpg",
+        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/Ethan.jpg",
         description="Ethan is always yelling about something",
         category="angry"
     )
@@ -214,7 +214,7 @@ def seed_frogs():
         age=1,
         price=600,
         stock=25,
-        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/PeeWee.jpg",
+        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/Isabella.jpg",
         description="Isabella is always happy ray of sunshine",
         category="happy"
     )
@@ -226,7 +226,7 @@ def seed_frogs():
         age=2,
         price=195,
         stock=17,
-        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/Shibo.png",
+        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/Liam.webp",
         description="Liam just vibin' ",
         category="happy"
     )
@@ -238,7 +238,7 @@ def seed_frogs():
         age=4,
         price=325,
         stock=30,
-        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/Eric.jpg",
+        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/Paul.jpg",
         description="Paul is always so happy on his branch",
         category="happy"
     )

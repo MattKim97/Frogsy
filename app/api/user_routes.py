@@ -52,8 +52,6 @@ def user_cart(id):
         db.session.add(cart)
         db.session.commit()
 
-    print("hellooooooooooooooo", user.cart.items)
-
     if not user.cart.items:
         return {'cart': "No Items", 'details': user.cart.to_dict(scope="default")}
         

@@ -11,7 +11,7 @@ def frogs():
     Query for all frogs and returns them in a list of frog dictionaries
     """
     frogs = Frog.query.all()
-    return {'Frogs': [frog.to_dict() for frog in frogs]}
+    return [frog.to_dict() for frog in frogs]
 
 @frog_routes.route('/<int:id>')
 def frog(id):
@@ -60,7 +60,7 @@ def new_frog():
     else:
         return error_message("Something went wrong"), 401
     
-@frog_routes.route('/<int:id>', methods=['PUT'])
+@frog_routes.route('/<int:id>', methods=['PATCH'])
 @login_required
 def update_frog(id):
     """
@@ -105,9 +105,9 @@ def update_frog(id):
         db.session.commit()
         return frog.to_dict(scope="with_owner"), 201
     elif form.errors:
-        return error_messages(form.errors), 401
+        return error_messages(form.errors), 400
     else:
-        return error_message("unknown","Something went wrong"), 401
+        return error_message("unknown","Something went wrong"), 500
     
 @frog_routes.route('/<int:id>', methods=['DELETE'])
 @login_required

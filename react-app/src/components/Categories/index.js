@@ -17,6 +17,9 @@ export default function Categories() {
     const onclickAngryFrogs = () => {
         history.push('/frogs/angry')
     }
+    const onclickAllFrogs = () => {
+        history.push('/frogs')
+    }
   return (
     <div>
         <h2>Categories</h2>
@@ -24,6 +27,7 @@ export default function Categories() {
       <button onClick={onclickSmallFrogs}>Small Frogs</button>
       <button onClick={onclickHappyFrogs}>Happy Frogs</button>
       <button onClick={onclickAngryFrogs}>Angry Frogs</button>
+      <button onClick={onclickAllFrogs}>All Frogs</button>
     </div>
   )
 }

@@ -57,10 +57,46 @@ export const getFrogThunk = (id) => async (dispatch) => {
     const frog = await response.json();
     dispatch(getFrog(frog));
   }
+  return response;
 }
 
-// export const createFrogThunk = formData => async (dispatch) => {
-//   const response = await fetch("/api/frogs/new", {
+export const createFrogThunk = formData => async (dispatch) => {
+  const response = await fetch("/api/frogs/new", {
+    method: 'POST',
+    body: formData})
+  
+  const responseData = await response.json();
+
+  if (response.ok) {
+    dispatch(createFrog(responseData));
+  }
+  return responseData;
+}
+
+export const updateFrogThunk = (formData, id) => async (dispatch) => {
+  const response = await fetch(`/api/frogs/${id}`, {
+    method: 'PATCH',
+    body: formData})
+  
+  const responseData = await response.json();
+
+  if (response.ok) {
+    dispatch(updateFrog(responseData));
+  }
+  return responseData;
+}
+
+export const deleteFrogThunk = (id) => async (dispatch) => {
+  const response = await fetch(`/api/frogs/${id}`, {
+    method: 'DELETE'
+  });
+
+  if (response.ok) {
+    dispatch(deleteFrog(id));
+  }
+  return response;
+}
+
 
 
 const initialState = {};

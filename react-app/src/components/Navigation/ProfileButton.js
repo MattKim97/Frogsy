@@ -4,8 +4,10 @@ import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function ProfileButton({ user }) {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
@@ -14,6 +16,10 @@ function ProfileButton({ user }) {
     if (showMenu) return;
     setShowMenu(true);
   };
+
+  const handleUserFrogs = () => {
+    history.push('/myfrogs')
+  }
 
   useEffect(() => {
     if (!showMenu) return;
@@ -48,6 +54,7 @@ function ProfileButton({ user }) {
             <li>{user.username}</li>
             <li>{user.email}</li>
             <li>
+            <button onClick={handleUserFrogs}>See My Frogs</button>
               <button onClick={handleLogout}>Log Out</button>
             </li>
           </>

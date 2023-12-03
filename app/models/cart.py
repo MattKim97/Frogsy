@@ -29,6 +29,9 @@ class Cart(db.Model):
         if scope == "with_items" and self.items:
             d["items"] = [{
                 "id": item.id,
+                "price": item.price,
+                "name": item.name,
+                "pictureUrl": item.pictureUrl,   
                 "quantity": item.quantity} for item in self.items]
         
         return d

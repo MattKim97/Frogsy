@@ -169,14 +169,13 @@ def add_to_cart(id):
     if current_user.cart.items is None:
         current_user.cart.items = []
     
-    # Check if the frog is already in the cart
     existing_frog = next((item for item in current_user.cart.items if item.id == frog.id), None)
     
     if existing_frog:
-        # If the frog is already in the cart, update its quantity
+        if existing_frog.stock < quantity or existing_frog.stock < existing_frog.quantity + quantity:
+            return error_message("stock", "Insufficient stock"), 400
         existing_frog.quantity += quantity
     else:
-        # If the frog is not in the cart, add it with the specified quantity
         frog.quantity = quantity
         current_user.cart.items.append(frog)
 

@@ -28,13 +28,17 @@ export default function MyFrogs() {
   return (
     <div>
       {sessionUser ? (
-        myfrogs.map(frog => (
-          <div key={frog.id}>
-            <div>{frog.name}</div>
-            <div><img className="landingImage" src={`${frog.pictureUrl}`} alt={frog.name} /></div>
-          </div>
-        ))
+        myfrogs.length > 0 ? (
+          myfrogs.map(frog => (
+            <div key={frog.id}>
+              <div>{frog.name}</div>
+              <div><img className="landingImage" src={`${frog.pictureUrl}`} alt={frog.name} /></div>
+            </div>
+          ))
+        ) : (
+          <div>You have no frogs for sale</div>
+        )
       ) : null}
     </div>
   );
-}
+        }

@@ -23,7 +23,7 @@ def delete_frog_from_cart(frogId):
     else:
         return error_message("message", "Item not found in the cart"), 404
 
-@cart_routes.route('/<int:frogId>', methods=['PUT'])
+@cart_routes.route('/<int:frogId>', methods=['PATCH'])
 @login_required
 def update_frog(frogId):
     """

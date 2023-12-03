@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
-import "./SignupForm.css";
 
 function SignupFormModal() {
 	const dispatch = useDispatch();
+	const history = useHistory();
 	const [email, setEmail] = useState("");
 	const [username, setUsername] = useState("");
+	const [profilePicture, setProfilePicture] = useState(null);
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [errors, setErrors] = useState([]);
@@ -15,12 +17,20 @@ function SignupFormModal() {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+
 		if (password === confirmPassword) {
-			const data = await dispatch(signUp(username, email, password));
+			const formData = new FormData();
+			formData.append("email", email)
+			formData.append("username", username)
+			formData.append("profilePicture", profilePicture)
+			formData.append("password", password)
+
+			const data = await dispatch(signUp(formData));
 			if (data) {
-				setErrors(data);
+				setErrors(Object.values(data));
 			} else {
 				closeModal();
+				history.push('/');
 			}
 		} else {
 			setErrors([
@@ -32,10 +42,10 @@ function SignupFormModal() {
 	return (
 		<>
 			<h1>Sign Up</h1>
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleSubmit} encType="multipart/form-data">
 				<ul>
 					{errors.map((error, idx) => (
-						<li key={idx}>{error}</li>
+						<li className="error" key={idx}>{error}</li>
 					))}
 				</ul>
 				<label>
@@ -54,6 +64,14 @@ function SignupFormModal() {
 						value={username}
 						onChange={(e) => setUsername(e.target.value)}
 						required
+					/>
+				</label>
+				<label>
+					Profile Picture (Optional)
+					<input
+						type="file"
+						accept="image/*"
+						onChange={(e)=>setProfilePicture(e.target.files[0])}
 					/>
 				</label>
 				<label>

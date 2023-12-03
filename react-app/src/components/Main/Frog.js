@@ -11,6 +11,7 @@ import {
 } from "../../store/frogs";
 import { useState } from "react";
 import { useRef } from "react";
+import { addToCartThunk } from "../../store/cart";
 
 export default function Frog() {
   const history = useHistory();
@@ -69,6 +70,16 @@ export default function Frog() {
     history.push(`/frogs/${frog.id}/edit`);
   };
 
+  const handleAddToCart = async () => {
+    const response = await dispatch(addToCartThunk(frog.id));
+    if (!response.errors) {
+      history.push('/cart');
+    } else {
+      console.error('Failed to add frog to cart');
+    }
+  };
+
+
   const handleDeleteKeep = async () => {
     const response = await dispatch(deleteFrogThunk(frog.id));
     if (response) {
@@ -117,6 +128,7 @@ export default function Frog() {
       <div> {frog.category}</div>
       {sessionUser.id == frog.owner_id ? (
         <div>
+          <button onClick={handleAddToCart}>Add to Cart</button>
           <button onClick={handleEdit}>Edit</button>
           <button onClick={handleDelete}>Delete</button>
         </div>

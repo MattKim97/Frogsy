@@ -14,9 +14,9 @@ export const addToCart = (cart) => ({
   cart,
 });
 
-export const removeFromCart = (cart) => ({
+export const removeFromCart = (removedItemId) => ({
   type: REMOVE_FROM_CART,
-  cart,
+  removedItemId,
 });
 
 export const checkout = (cart) => ({
@@ -61,7 +61,7 @@ export const removeFromCartThunk = (frogId) => async (dispatch) => {
   });
   if (response.ok) {
     const cart = await response.json();
-    dispatch(removeFromCart(cart));
+    dispatch(removeFromCart(frogId));
   }
 };
 
@@ -94,18 +94,25 @@ export const checkoutThunk = (userId) => async (dispatch) => {
 
 const initialState = {};
   
-  const cartReducer = (state = initialState, action) => {
-    switch (action.type) {
-      case GET_CART:
+const cartReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case GET_CART:
+    case UPDATE_CART:
+    case CHECKOUT:
       case ADD_TO_CART:
-      case UPDATE_CART:
-      case CHECKOUT:
+      return {
+        ...state,
+        ...action.cart
+      };
+      case REMOVE_FROM_CART:
+        const updatedItems = state.items.filter((item) => item.id !== action.removedItemId);
         return {
-          ...state
-        };
-      default:
-        return state;
-    }
-  };
+          ...state,
+          items: updatedItems,
+                };
+    default:
+      return state;
+  }
+};
   
   export default cartReducer;

@@ -121,6 +121,7 @@ export default function FrogForm() {
             value={formData.gender}
             onChange={handleInputChange}
           >
+            <option>Choose a gender</option>
             <option value={"male"}>Male</option>
             <option value={"female"}>Female</option>
           </select>
@@ -183,6 +184,7 @@ export default function FrogForm() {
                 value={formData.category}
                 onChange={handleInputChange}
             >
+              <option>Choose a category</option>
                 <option value={"big"}>Big</option>
                 <option value={"angry"}>Angry</option>
                 <option value={"happy"}>Happy</option>

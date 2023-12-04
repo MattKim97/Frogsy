@@ -126,13 +126,13 @@ export default function Frog() {
       <div> {frog.description}</div>
 
       <div> {frog.category}</div>
-      {sessionUser.id == frog.owner_id ? (
+      <button onClick={handleAddToCart}>Add to Cart</button>
+      {sessionUser ? sessionUser.id == frog.owner_id ? (
         <div>
-          <button onClick={handleAddToCart}>Add to Cart</button>
           <button onClick={handleEdit}>Edit</button>
           <button onClick={handleDelete}>Delete</button>
         </div>
-      ) : null}
+      ) : null : null}
     </div>
   );
 }

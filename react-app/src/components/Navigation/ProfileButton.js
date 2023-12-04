@@ -18,10 +18,14 @@ function ProfileButton({ user }) {
     setShowMenu(true);
   };
 
-  
   const handleUserFrogs = () => {
-    history.push('/myfrogs')
-  }
+    history.push("/myfrogs");
+  };
+
+  const handleSellFrog = () => {
+    history.push("/frogs/new");
+  };
+
 
   useEffect(() => {
     if (!showMenu) return;
@@ -40,7 +44,7 @@ function ProfileButton({ user }) {
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
-    history.push('/');
+    history.push("/");
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
@@ -49,7 +53,19 @@ function ProfileButton({ user }) {
   return (
     <>
       <button className="profile-button" onClick={openMenu}>
-        {user ? user.profilePictureUrl ? <img className="userProfileImage" src={user.profilePictureUrl} alt="profile" /> : <i className="fas fa-user-circle" /> :<i className="fas fa-user-circle" />}
+        {user ? (
+          user.profilePictureUrl ? (
+            <img
+              className="userProfileImage"
+              src={user.profilePictureUrl}
+              alt="profile"
+            />
+          ) : (
+            <i className="fas fa-user-circle" />
+          )
+        ) : (
+          <i className="fas fa-user-circle" />
+        )}
       </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
@@ -57,8 +73,10 @@ function ProfileButton({ user }) {
             <li>{user.username}</li>
             <li>{user.email}</li>
             <button onClick={handleUserFrogs}>See My Frogs</button>
-
-            <button className="logout-button" onClick={handleLogout}>Log Out</button>
+            <button onClick={handleSellFrog}>Sell A Frog</button>
+            <button className="logout-button" onClick={handleLogout}>
+              Log Out
+            </button>
           </>
         ) : (
           <>
@@ -68,7 +86,7 @@ function ProfileButton({ user }) {
               customClassName=""
               modalComponent={<LoginFormModal />}
             />
-            <div style={{height:'10px'}}></div>
+            <div style={{ height: "10px" }}></div>
             <OpenModalButton
               buttonText="Sign Up"
               onItemClick={closeMenu}

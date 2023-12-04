@@ -13,8 +13,11 @@ def delete_frog_from_cart(frogId):
     """
     cart = Cart.query.filter(Cart.user_id == current_user.id).first()
 
-    
-    index_to_delete = next((index for index, item in enumerate(cart.items) if item.id == frogId), None)    
+    print("Cart Items:", cart.items)
+    print("Frog ID to Delete:", frogId)
+    index_to_delete = next((index for index, item in enumerate(cart.items) if str(item.id) == str(frogId)), None)
+    print("Index to Delete:", index_to_delete)
+
     if index_to_delete is not None:
         # Remove the item from the list and commit the changes to the database
         del cart.items[index_to_delete]

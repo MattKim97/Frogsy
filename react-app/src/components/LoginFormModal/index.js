@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
+import { useHistory } from "react-router-dom";
 import "./LoginForm.css";
 
 function LoginFormModal() {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,6 +22,22 @@ function LoginFormModal() {
         closeModal()
     }
   };
+
+  const handleDemoLogin = async () => {
+    setEmail('demo@aa.io');
+    setPassword('password');
+    try {
+      const response = await dispatch(login(email, password));
+      if (response.ok) {
+        await response.json();
+        history.push("/");
+      } else {
+        console.error('Something went wrong');
+      }
+    } catch (error) {
+      console.error('An error occurred during login:', error);
+    }
+  }
 
   return (
     <>
@@ -49,6 +67,7 @@ function LoginFormModal() {
           />
         </label>
         <button type="submit">Log In</button>
+        <button onClick={handleDemoLogin}>Log in as Demo User</button>
       </form>
     </>
   );

@@ -7,6 +7,10 @@ import Smallfrogs from './Smallfrogs';
 import Happyfrogs from './Happyfrogs';
 import Angryfrogs from './Angryfrogs';
 import Cart from './Cart';
+import MyFrogs from './MyFrogs';
+import FrogForm from './FrogForm';
+import Frog from './Frog';
+import FrogUpdateForm from './FrogUpdateForm';
 
 export default function Main() {
   return (
@@ -32,6 +36,19 @@ export default function Main() {
         <Route exact path='/cart'>
         <Cart/>
         </Route>
+        <Route exact path='/myfrogs'>
+        <MyFrogs/>
+        </Route>
+        <Route exact path='/frogs/new'>
+        <FrogForm/>
+        </Route>
+        <Route exact path='/frogs/:frogId'>
+        <Frog/>
+        </Route>
+        <Route exact path='/frogs/:frogId/edit'>
+        <FrogUpdateForm/>
+        </Route>
+
     </Switch>
   )
 }

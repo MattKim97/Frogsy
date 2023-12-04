@@ -17,6 +17,8 @@ export default function Cart() {
   const [quantity, setQuantity] = useState(0); 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [quantityFrogId, setQuantityFrogId] = useState(null)
+  const [quantityStock, setQuantityStock] = useState(null)
+  console.log("🚀 ~ file: Cart.js:21 ~ Cart ~ quantityStock:", quantityStock)
 
   const handleDeleteFrog = async (frogId) => {
     const response = await dispatch(removeFromCartThunk(frogId));
@@ -58,11 +60,14 @@ export default function Cart() {
         <div className="modal">
           <div className="modal-content">
             <h1>Update Quantity</h1>
-            <p>Do you want to change the quantity</p>
+            <p>Do you want to change the quantity?</p>
+            <p>Currently In Stock: {quantityStock}</p>
             <div className="modalButtons">
               <input
                 type="number"
                 value={quantity}
+                min={1}
+                max={quantityStock}
                 onChange={(e) => setQuantity(e.target.value)}
               />
               <button  className="deleteButton"  onClick={handleQuanitySubmit} type="submit">Submit</button>
@@ -93,6 +98,7 @@ export default function Cart() {
                   handleEditQuantity();
                   setQuantity(frog.quantity);
                   setQuantityFrogId(frog.id);
+                  setQuantityStock(frog.stock);
                 }}
               >
                 Edit Quantity

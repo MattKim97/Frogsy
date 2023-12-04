@@ -31,6 +31,7 @@ class Cart(db.Model):
                 "id": item.id,
                 "price": item.price,
                 "name": item.name,
+                "stock": item.stock,
                 "pictureUrl": item.pictureUrl,   
                 "quantity": item.quantity} for item in self.items]
         

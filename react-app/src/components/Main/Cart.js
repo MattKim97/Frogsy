@@ -103,7 +103,7 @@ export default function Cart() {
               >
                 Edit Quantity
               </button>
-              <button onClick={() => handleDeleteFrog()}>Delete Frog</button>
+              <button onClick={() => handleDeleteFrog(frog.id)}>Delete Frog</button>
             </div>
           ))
         ) : (

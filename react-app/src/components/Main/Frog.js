@@ -119,15 +119,17 @@ export default function Frog() {
           </div>
         </div>
       )}
+      <div>
+        <img src={`${frog.pictureUrl}`} alt={frog.name}  className="FrogMainImage"/>
+      </div>
       <div>{frog.name}</div>
       <div> {frog.species}</div>
-      <div>
-        <img src={`${frog.pictureUrl}`} alt={frog.name} />
-      </div>
 
       <div> Gender: {frog.gender}</div>
 
       <div> Age: {frog.age}</div>
+
+      <div>Species: {frog.species} </div>
 
       <div> Price: {frog.price}</div>
 

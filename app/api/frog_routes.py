@@ -123,7 +123,7 @@ def delete_frog(id):
 
     file_to_delete = remove_file_from_s3(frog.pictureUrl)
 
-    if file_to_delete is True:
+    if file_to_delete:
         db.session.delete(frog)
         db.session.commit()
 

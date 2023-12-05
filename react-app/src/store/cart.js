@@ -34,6 +34,10 @@ export const getCartThunk = (userId) => async (dispatch) => {
   if (response.ok) {
     const cart = await response.json();
     dispatch(getCart(cart));
+    return cart;
+  }
+  else {
+    return response;
   }
 };
 

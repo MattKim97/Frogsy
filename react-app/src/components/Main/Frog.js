@@ -16,6 +16,7 @@ export default function Frog() {
   const history = useHistory();
   const { frogId } = useParams();
   const sessionUser = useSelector((state) => state.session.user);
+  console.log("🚀 ~ file: Frog.js:19 ~ Frog ~ sessionUser:", sessionUser)
   const frogs = Object.values(useSelector((state) => state.frogs));
   console.log("🚀 ~ file: Frog.js:13 ~ Frog ~ frogs:", frogs);
   const dispatch = useDispatch();

@@ -14,6 +14,7 @@ export default function Cart() {
   const history = useHistory();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
+  console.log("🚀 ~ file: Cart.js:17 ~ Cart ~ cart:", cart)
   const sessionUser = useSelector((state) => state.session.user);
   const [quantity, setQuantity] = useState(0); 
   const [isModalOpen, setIsModalOpen] = useState(false);

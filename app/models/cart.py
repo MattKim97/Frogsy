@@ -2,9 +2,12 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 
 cartItem = db.Table(
     'cartItems',
+    db.Model.metadata,
     db.Column('cart_id', db.Integer, db.ForeignKey(add_prefix_for_prod("carts.id")), primary_key=True),
     db.Column('frog_id', db.Integer, db.ForeignKey(add_prefix_for_prod("frogs.id")), primary_key=True),
 )
+if environment == "production":
+    cartItem.schema = SCHEMA
 
 class Cart(db.Model):
     __tablename__ = 'carts'

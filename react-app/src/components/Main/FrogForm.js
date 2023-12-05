@@ -135,6 +135,7 @@ export default function FrogForm() {
                 type="number"
                 name="age"
                 value={formData.age}
+                min={0}
                 onChange={handleInputChange}
             />
             {errors.age && <div style={{ color: "red" }}>{errors.age}</div>}
@@ -147,6 +148,7 @@ export default function FrogForm() {
                 type="number"
                 name="price"
                 value={formData.price}
+                min={0}
                 onChange={handleInputChange}
             />
             {errors.price && <div style={{ color: "red" }}>{errors.price}</div>}
@@ -159,6 +161,7 @@ export default function FrogForm() {
                 type="number"
                 name="stock"
                 value={formData.stock}
+                min={0}
                 onChange={handleInputChange}
             />
             {errors.stock && <div style={{ color: "red" }}>{errors.stock}</div>}

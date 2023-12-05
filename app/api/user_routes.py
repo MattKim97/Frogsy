@@ -54,5 +54,5 @@ def user_cart(id):
 
     if not user.cart.items:
         return user.cart.to_dict(scope="default")
-        
-    return user.cart.to_dict(scope="with_items")
+    else:
+        return user.cart.to_dict(scope="with_items")

@@ -14,20 +14,19 @@ export default function Cart() {
   const history = useHistory();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-  console.log("🚀 ~ file: Cart.js:17 ~ Cart ~ cart:", cart)
+  console.log("🚀 ~ file: Cart.js:17 ~ Cart ~ cart:", cart);
   const sessionUser = useSelector((state) => state.session.user);
-  const [quantity, setQuantity] = useState(0); 
+  const [quantity, setQuantity] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [quantityFrogId, setQuantityFrogId] = useState(null)
-  const [quantityStock, setQuantityStock] = useState(null)
-
+  const [quantityFrogId, setQuantityFrogId] = useState(null);
+  const [quantityStock, setQuantityStock] = useState(null);
 
   const handleDeleteFrog = async (frogId) => {
     const response = await dispatch(removeFromCartThunk(frogId));
     if (response) {
       history.push("/cart");
     }
-  };  
+  };
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -36,7 +35,8 @@ export default function Cart() {
     setIsModalOpen(false);
   };
 
-  const handleEditQuantity = () => { openModal();
+  const handleEditQuantity = () => {
+    openModal();
   };
 
   const handleQuanitySubmit = async () => {
@@ -45,16 +45,22 @@ export default function Cart() {
     if (response) {
       history.push("/cart");
     }
+  };
 
-  }
+  const calculateOrderTotal = (items) => {
+    return items.reduce((total, frog) => total + frog.price * frog.quantity, 0);
+  };
 
   const handleCheckOut = async () => {
     const response = await dispatch(checkoutThunk());
-
+  
+    console.log("🚀 ~ file: Cart.js:58 ~ handleCheckOut ~ response:", response)
     if (response) {
       history.push("/cart");
+      const orderTotal = calculateOrderTotal(cart.items);
+      window.alert(`Order Complete. Your total was: $${orderTotal}`);
     }
-  }
+  };
 
   useEffect(() => {
     if (!sessionUser) {
@@ -62,7 +68,6 @@ export default function Cart() {
     }
     dispatch(getCartThunk(sessionUser.id));
   }, [dispatch, sessionUser]);
-  
 
   if (!cart) {
     return null;
@@ -85,7 +90,13 @@ export default function Cart() {
                 max={quantityStock}
                 onChange={(e) => setQuantity(e.target.value)}
               />
-              <button  className="deleteButton"  onClick={handleQuanitySubmit} type="submit">Submit</button>
+              <button
+                className="deleteButton"
+                onClick={handleQuanitySubmit}
+                type="submit"
+              >
+                Submit
+              </button>
               <button className="keepButton" onClick={closeModal}>
                 No (Keep Quantity)
               </button>
@@ -118,13 +129,24 @@ export default function Cart() {
               >
                 Edit Quantity
               </button>
-              <button onClick={() => handleDeleteFrog(frog.id)}>Delete Frog</button>
+              <button onClick={() => handleDeleteFrog(frog.id)}>
+                Delete Frog
+              </button>
             </div>
           ))
         ) : (
           <div>You have no frogs in your cart</div>
         )
       ) : null}
+      <div>
+        {sessionUser && cart.items && cart.items.length > 0 ? (
+          <div>
+            <div>Order Total: {calculateOrderTotal(cart.items)}</div>
+          </div>
+        ) : (
+          <div>No items in the cart</div>
+        )}
+      </div>
       <button onClick={handleCheckOut}>Checkout</button>
     </div>
   );

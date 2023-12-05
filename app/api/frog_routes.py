@@ -153,13 +153,13 @@ def add_to_cart(id):
     
     quantity = request.json.get('quantity', 1)
 
-        # Ensure the quantity is a positive integer
-    if not isinstance(quantity, int) or quantity < 1:
-        return error_message("quantity", "Invalid quantity"), 400
+    #     # Ensure the quantity is a positive integer
+    # if not isinstance(quantity, int) or quantity < 1:
+    #     return error_message("quantity", "Invalid quantity"), 400
 
     # Check if there's enough stock
-    if frog.stock < quantity:
-        return error_message("stock", "Insufficient stock"), 400
+    # if frog.stock < quantity:
+    #     return error_message("stock", "Insufficient stock"), 400
     
     if current_user.cart is None:
         current_user.cart = Cart(user_id=current_user.id)

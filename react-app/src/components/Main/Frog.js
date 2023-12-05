@@ -23,6 +23,7 @@ export default function Frog() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
+  const [quantity, setQuantity] = useState(1);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -71,7 +72,16 @@ export default function Frog() {
   };
 
   const handleAddToCart = async () => {
-    const response = await dispatch(addToCartThunk(frog.id));
+    if (quantity > frog.stock) {
+      if (frog.stock === 0) {
+        window.alert("This frog is out of stock");
+      }
+      else {
+        window.alert(`There are only ${frog.stock} of this frog left in stock`);
+      }
+      return;
+    }
+    const response = await dispatch(addToCartThunk(frog.id , quantity));
     if (!response.errors) {
       history.push('/cart');
     } else {
@@ -115,17 +125,18 @@ export default function Frog() {
         <img src={`${frog.pictureUrl}`} alt={frog.name} />
       </div>
 
-      <div> {frog.gender}</div>
+      <div> Gender: {frog.gender}</div>
 
-      <div> {frog.age}</div>
+      <div> Age: {frog.age}</div>
 
-      <div> {frog.price}</div>
+      <div> Price: {frog.price}</div>
 
-      <div> {frog.stock}</div>
+      <div> Stock: {frog.stock > 0 ? frog.stock : "OUT OF STOCK"}</div>
 
-      <div> {frog.description}</div>
+      <div>Description: {frog.description}</div>
 
-      <div> {frog.category}</div>
+      <div>Frog Category: {frog.category}</div>
+      <input type="number" value={quantity} min={1} max={frog.stock} onChange={(e) => setQuantity(e.target.value)} />
       <button onClick={handleAddToCart}>Add to Cart</button>
       {sessionUser ? sessionUser.id === frog.owner_id ? (
         <div>

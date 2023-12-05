@@ -89,6 +89,7 @@ export const checkoutThunk = () => async (dispatch) => {
     const cart = await response.json();
     console.log("Checkout Cart:", cart); // Log the updated cart data
     dispatch(checkout(cart));
+    return cart;
   }
   else {
     return response;

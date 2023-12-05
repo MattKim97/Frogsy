@@ -46,7 +46,8 @@ def login():
             db.session.add(user.cart)
             db.session.commit()
         return user.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    else:
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 @auth_routes.route('/logout')

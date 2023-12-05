@@ -126,7 +126,7 @@ def delete_frog(id):
     db.session.delete(frog)
     db.session.commit()
 
-    return frog.id
+    return {"message": "Deleted"}, 200
 
 
 @frog_routes.route('/<category>')

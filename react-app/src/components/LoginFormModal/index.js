@@ -23,21 +23,21 @@ function LoginFormModal() {
     }
   };
 
-  const handleDemoLogin = async () => {
-    setEmail('demo@aa.io');
-    setPassword('password');
-    try {
-      const response = await dispatch(login(email, password));
-      if (response.ok) {
-        await response.json();
+  const handleDemoLogin = async (e) => {
+    e.preventDefault();
+
+
+    
+     const response = await dispatch(login('demo@aa.io', 'password'));
+
+      if (response) {
+        setErrors(response);
         history.push("/");
       } else {
-        console.error('Something went wrong');
+        closeModal()
       }
-    } catch (error) {
-      console.error('An error occurred during login:', error);
     }
-  }
+  
 
   return (
     <>

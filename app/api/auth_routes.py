@@ -89,6 +89,10 @@ def sign_up():
         db.session.add(user)
         db.session.commit()
         login_user(user)
+        if user.cart is None:
+            user.cart = Cart(user_id=user.id)
+            db.session.add(user.cart)
+            db.session.commit()
         return user.to_dict()
     return error_messages(form.errors), 401
 

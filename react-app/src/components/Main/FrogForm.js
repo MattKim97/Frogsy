@@ -73,7 +73,7 @@ export default function FrogForm() {
 
   return (
     <div className="formsContainer">
-      <form className="formsStyle" onSubmit={handleSubmit}>
+      <form className="formsStyle"  encType="multipart/form-data" onSubmit={handleSubmit}>
         <h2>Sell a Frog!</h2>
         <label>
           Frog name:

@@ -53,6 +53,6 @@ def user_cart(id):
         db.session.commit()
 
     if not user.cart.items:
-        return {'cart': "No Items", 'details': user.cart.to_dict(scope="default")}
+        return user.cart.to_dict(scope="default")
         
     return user.cart.to_dict(scope="with_items")

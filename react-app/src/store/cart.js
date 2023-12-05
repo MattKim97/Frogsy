@@ -59,7 +59,6 @@ export const removeFromCartThunk = (frogId) => async (dispatch) => {
     method: "DELETE",
   });
   if (response.ok) {
-    const cart = await response.json();
     dispatch(removeFromCart(frogId));
   }
 };

@@ -1,7 +1,6 @@
 import React from "react";
 import {
   updateFrogThunk,
-  getFrogThunk,
   getAllFrogsThunk,
 } from "../../store/frogs";
 import { useDispatch } from "react-redux";
@@ -112,6 +111,8 @@ export default function FrogUpdateForm() {
       if (!frog) {
         return;
       }
+      
+    
 
       setFormData({
         name: frog.name || "",

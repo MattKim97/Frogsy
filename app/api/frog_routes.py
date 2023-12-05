@@ -117,6 +117,8 @@ def delete_frog(id):
     """
     frog = Frog.query.get(id)
 
+    print(frog.owner_id, current_user.id)
+
     if frog.owner_id != current_user.id:
         return error_message("Unauthorized"), 401
 

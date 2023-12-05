@@ -7,7 +7,6 @@ import { useHistory } from "react-router-dom";
 import {
   deleteFrogThunk,
   getAllFrogsThunk,
-  getFrogThunk,
 } from "../../store/frogs";
 import { useState } from "react";
 import { useRef } from "react";
@@ -127,7 +126,7 @@ export default function Frog() {
 
       <div> {frog.category}</div>
       <button onClick={handleAddToCart}>Add to Cart</button>
-      {sessionUser ? sessionUser.id == frog.owner_id ? (
+      {sessionUser ? sessionUser.id === frog.owner_id ? (
         <div>
           <button onClick={handleEdit}>Edit</button>
           <button onClick={handleDelete}>Delete</button>

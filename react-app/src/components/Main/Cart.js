@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  checkoutThunk,
   getCartThunk,
   removeFromCartThunk,
   updateCartThunk,
@@ -18,7 +19,7 @@ export default function Cart() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [quantityFrogId, setQuantityFrogId] = useState(null)
   const [quantityStock, setQuantityStock] = useState(null)
-  console.log("🚀 ~ file: Cart.js:21 ~ Cart ~ quantityStock:", quantityStock)
+
 
   const handleDeleteFrog = async (frogId) => {
     const response = await dispatch(removeFromCartThunk(frogId));
@@ -37,9 +38,21 @@ export default function Cart() {
   const handleEditQuantity = () => { openModal();
   };
 
-  const handleQuanitySubmit = () => {
-    dispatch(updateCartThunk(quantityFrogId, quantity));
+  const handleQuanitySubmit = async () => {
+    const response = await dispatch(updateCartThunk(quantityFrogId, quantity));
     closeModal();
+    if (response) {
+      history.push("/cart");
+    }
+
+  }
+
+  const handleCheckOut = async () => {
+    const response = await dispatch(checkoutThunk());
+
+    if (response) {
+      history.push("/cart");
+    }
   }
 
   useEffect(() => {
@@ -48,6 +61,7 @@ export default function Cart() {
     }
     dispatch(getCartThunk(sessionUser.id));
   }, [dispatch, sessionUser]);
+  
 
   if (!cart) {
     return null;
@@ -110,6 +124,7 @@ export default function Cart() {
           <div>You have no frogs in your cart</div>
         )
       ) : null}
+      <button onClick={handleCheckOut}>Checkout</button>
     </div>
   );
 }

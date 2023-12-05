@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllFrogsThunk } from '../../store/frogs';
+import FrogCard from '../FrogCard';
 
 export default function Angryfrogs() {
 
@@ -23,9 +24,8 @@ export default function Angryfrogs() {
   return (
     <div>
       {angryFrogs.map(frog => (
-        <div>
-          <div>{frog.name}</div>
-          <div><img  className="landingImage" src={`${frog.pictureUrl}`}/> </div>
+        <div key={frog.id}>
+          <FrogCard frog={frog} />
         </div>
       ))  
       }

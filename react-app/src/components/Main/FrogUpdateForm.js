@@ -132,7 +132,7 @@ export default function FrogUpdateForm() {
 
   return (
     <div className="formsContainer">
-      <form className="formsStyle" onSubmit={handleSubmit}>
+      <form className="formsStyle" encType="multipart/form-data" onSubmit={handleSubmit}>
         <h2>Update A Frog</h2>
         <label>
           Frog name:

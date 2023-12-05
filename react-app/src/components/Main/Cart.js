@@ -144,7 +144,7 @@ export default function Cart() {
             <div>Order Total: {calculateOrderTotal(cart.items)}</div>
           </div>
         ) : (
-          <div>No items in the cart</div>
+          null
         )}
       </div>
       <button onClick={handleCheckOut}>Checkout</button>

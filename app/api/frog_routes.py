@@ -127,7 +127,7 @@ def delete_frog(id):
         db.session.delete(frog)
         db.session.commit()
 
-        return {"message": "Frog deleted"}, 201
+        return frog.id
     else:
         return error_message("file","File deletion error"), 401
 

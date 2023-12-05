@@ -36,20 +36,31 @@ def update_frog(frogId):
 
     quantity = request.json.get('quantity', 1)
 
-        # Ensure the quantity is a positive integer
-    if not isinstance(quantity, int) or quantity < 1:
-        return error_message("quantity", "Invalid quantity"), 400
-
     frog = next((item for item in cart.items if item.id == frogId), None)
 
-    # Check if there's enough stock
-    if frog.stock < quantity:
-        return error_message("stock", "Insufficient stock"), 400
     
-
     if frog is not None:
-        frog.quantity = request.json["quantity"]
+        
+
+        frog.quantity = quantity
         db.session.commit()
-        return "Updated"
+        return cart.to_dict(scope="with_items"), 200
     else:
         return error_message("message", "Item not found in the cart"), 404
+    
+
+@cart_routes.route('/checkout', methods=['DELETE'])
+@login_required
+def checkout():
+    """
+    Deletes all frogs from a user's cart
+    """
+    cart = Cart.query.filter(Cart.user_id == current_user.id).first()
+
+    for frog in cart.items:
+        frog.stock -= frog.quantity
+        db.session.commit()
+
+    cart.items = []
+    db.session.commit()
+    return cart.to_dict(scope="with_items"), 200

@@ -78,17 +78,22 @@ export const updateCartThunk = (frogId, quantity) => async (dispatch) => {
   });
   if (response.ok) {
     const cart = await response.json();
+    console.log("Updated Cart:", cart); // Log the updated cart data
     dispatch(updateCart(cart));
   }
 };
 
-export const checkoutThunk = (userId) => async (dispatch) => {
-  const response = await fetch(`/api/users/${userId}/cart/checkout`, {
+export const checkoutThunk = () => async (dispatch) => {
+  const response = await fetch(`/api/cart/checkout`, {
     method: "DELETE",
   });
   if (response.ok) {
     const cart = await response.json();
+    console.log("Checkout Cart:", cart); // Log the updated cart data
     dispatch(checkout(cart));
+  }
+  else {
+    return response;
   }
 };
 
@@ -98,7 +103,6 @@ const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_CART:
     case UPDATE_CART:
-    case CHECKOUT:
       case ADD_TO_CART:
       return {
         ...state,
@@ -110,6 +114,11 @@ const cartReducer = (state = initialState, action) => {
           ...state,
           items: updatedItems,
                 };
+      case CHECKOUT:
+        return {
+          ...state,
+          items: []
+        };
     default:
       return state;
   }

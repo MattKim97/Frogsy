@@ -123,13 +123,11 @@ def delete_frog(id):
 
     file_to_delete = remove_file_from_s3(frog.pictureUrl)
 
-    if file_to_delete:
-        db.session.delete(frog)
-        db.session.commit()
+    db.session.delete(frog)
+    db.session.commit()
 
-        return frog.id
-    else:
-        return error_message("file","File deletion error"), 401
+    return frog.id
+
 
 @frog_routes.route('/<category>')
 def category(category):

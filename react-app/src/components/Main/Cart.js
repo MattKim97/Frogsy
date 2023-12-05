@@ -53,9 +53,12 @@ export default function Cart() {
 
   const handleCheckOut = async () => {
     const response = await dispatch(checkoutThunk());
-
+  
+    console.log("🚀 ~ file: Cart.js:58 ~ handleCheckOut ~ response:", response)
     if (response) {
       history.push("/cart");
+      const orderTotal = calculateOrderTotal(cart.items);
+      window.alert(`Order Complete. Your total was: $${orderTotal}`);
     }
   };
 

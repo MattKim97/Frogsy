@@ -23,7 +23,7 @@ export default function Frog() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -72,6 +72,15 @@ export default function Frog() {
   };
 
   const handleAddToCart = async () => {
+    if (quantity > frog.stock) {
+      if (frog.stock === 0) {
+        window.alert("This frog is out of stock");
+      }
+      else {
+        window.alert(`There are only ${frog.stock} of this frog left in stock`);
+      }
+      return;
+    }
     const response = await dispatch(addToCartThunk(frog.id , quantity));
     if (!response.errors) {
       history.push('/cart');

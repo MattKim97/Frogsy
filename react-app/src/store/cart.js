@@ -44,7 +44,6 @@ export const addToCartThunk = (frogId, quantity) => async (dispatch) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      frogId,
       quantity,
     }),
   });

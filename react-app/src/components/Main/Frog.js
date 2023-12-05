@@ -23,6 +23,7 @@ export default function Frog() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
+  const [quantity, setQuantity] = useState(0);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -71,7 +72,7 @@ export default function Frog() {
   };
 
   const handleAddToCart = async () => {
-    const response = await dispatch(addToCartThunk(frog.id));
+    const response = await dispatch(addToCartThunk(frog.id , quantity));
     if (!response.errors) {
       history.push('/cart');
     } else {
@@ -126,6 +127,7 @@ export default function Frog() {
       <div> {frog.description}</div>
 
       <div> {frog.category}</div>
+      <input type="number" value={quantity} min={1} max={frog.stock} onChange={(e) => setQuantity(e.target.value)} />
       <button onClick={handleAddToCart}>Add to Cart</button>
       {sessionUser ? sessionUser.id === frog.owner_id ? (
         <div>

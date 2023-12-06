@@ -75,7 +75,7 @@ export default function Cart() {
   console.log("🚀 ~ file: Cart.js:46 ~ Cart ~ cart.items:", cart.items);
 
   return (
-    <div>
+    <div className="CartContainer">
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">
@@ -108,13 +108,13 @@ export default function Cart() {
         cart.items && cart.items.length > 0 ? (
           cart.items.map((frog) => (
             <div key={frog.id}>
-              <div>{frog.name}</div>
-              <div>{frog.price}</div>
-              <div>{frog.quantity}</div>
+              <div>Name: {frog.name}</div>
+              <div>Price: {frog.price}</div>
+              <div>Quantity: {frog.quantity}</div>
               <div>Order Price: {frog.price * frog.quantity}</div>
               <div>
                 <img
-                  className="landingImage"
+                  className="FrogCardImage"
                   src={`${frog.pictureUrl}`}
                   alt={frog.name}
                 />

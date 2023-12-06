@@ -21,13 +21,17 @@ export default function Categories() {
         history.push('/frogs')
     }
   return (
-    <div>
+    <div className='categoriesContainer'>
+      <div className='categoriesHeaderContainer'>
         <h2>Categories</h2>
-      <button onClick={onclickBigFrogs}>Big Frogs</button>
-      <button onClick={onclickSmallFrogs}>Small Frogs</button>
-      <button onClick={onclickHappyFrogs}>Happy Frogs</button>
-      <button onClick={onclickAngryFrogs}>Angry Frogs</button>
-      <button onClick={onclickAllFrogs}>All Frogs</button>
+      </div>
+      <div className='buttonContainer'>
+      <button  className="categoryButtons" onClick={onclickBigFrogs}><i className="fa-solid fa-magnifying-glass-plus"></i> Big Frogs</button>
+      <button className="categoryButtons" onClick={onclickSmallFrogs}> <i className="fa-solid fa-magnifying-glass-minus"></i>Small Frogs</button>
+      <button className="categoryButtons" onClick={onclickHappyFrogs}><i className="fa-solid fa-face-smile"></i> Happy Frogs</button>
+      <button className="categoryButtons" onClick={onclickAngryFrogs}> <i className="fa-solid fa-face-angry"></i>Angry Frogs</button>
+      <button className="categoryButtons" onClick={onclickAllFrogs}><i className="fa-solid fa-frog"></i> All Frogs</button>
+      </div>
     </div>
   )
 }

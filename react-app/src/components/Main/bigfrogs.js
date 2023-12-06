@@ -21,13 +21,16 @@ export default function Bigfrogs() {
   const bigFrogs = frogs.filter(frog => frog.category === 'big');
 
   return (
-    <div>
+    <div className='frogsCateContainer'>
+      <h1>Peruse our Big Frogs</h1>
+    <div className='frogsContainer'>
       {bigFrogs.map(frog => (
         <div key={frog.id}>
           <FrogCard frog={frog} />
         </div>
       ))  
       }
+    </div> 
     </div>
   )
 }

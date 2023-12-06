@@ -22,13 +22,16 @@ export default function Angryfrogs() {
 
 
   return (
-    <div>
+    <div className='frogsCateContainer'>
+      <h1>Peruse our Angry Frogs</h1>
+    <div className='frogsContainer'>
       {angryFrogs.map(frog => (
         <div key={frog.id}>
           <FrogCard frog={frog} />
         </div>
       ))  
       }
+    </div> 
     </div>
   )
 }

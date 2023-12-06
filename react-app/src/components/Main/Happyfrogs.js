@@ -22,13 +22,16 @@ export default function Happyfrogs() {
 
 
   return (
-    <div>
+    <div className='frogsCateContainer'>
+      <h1>Peruse our Happy Frogs</h1>
+    <div className='frogsContainer'>
       {happyFrogs.map(frog => (
         <div key={frog.id}>
           <FrogCard frog={frog} />
         </div>
       ))  
       }
+    </div> 
     </div>
   )
 }

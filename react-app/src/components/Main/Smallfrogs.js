@@ -20,13 +20,16 @@ export default function Smallfrogs() {
   const smallFrogs = frogs.filter(frog => frog.category === 'small');
   
   return (
-    <div>
+    <div className='frogsCateContainer'>
+      <h1>Peruse our Little Frogs</h1>
+    <div className='frogsContainer'>
       {smallFrogs.map(frog => (
         <div key={frog.id}>
           <FrogCard frog={frog} />
         </div>
       ))  
       }
+    </div> 
     </div>
   )
 }

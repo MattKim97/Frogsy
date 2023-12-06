@@ -17,13 +17,15 @@ export default function Header() {
   }, [dispatch]);
 
   return (
-    <div className='HeaderStyle'>
+<div className='HeaderStyle'>
       <Logo/>
-      <CartLogo/>
-      <Navigation isLoaded={isLoaded} />
+      <div className='RightSection'>
+        <CartLogo/>
+        <Navigation isLoaded={isLoaded} />
+      </div>
       {isLoaded && (
         <Switch>
-          <Route path="/login" >
+          <Route path="/login">
             <LoginFormPage />
           </Route>
           <Route path="/signup">

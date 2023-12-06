@@ -1,6 +1,12 @@
+html{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
 .HeaderStyle{
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: space-between;
 }
 .LogoContainer{
     cursor: pointer;
@@ -22,4 +28,15 @@
 
 .classLogoContainer{
     cursor: pointer;
+}
+
+.RightSection{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px   ;
+}
+
+.fa-cart-shopping{
+    font-size: 40px;
 }

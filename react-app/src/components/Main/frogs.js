@@ -19,13 +19,16 @@ export default function Frogs() {
 
 
   return (
-    <div>
-      {frogs.map(frog => (
-        <div key={frog.id}>
-          <FrogCard frog={frog} />
-        </div>
-      ))  
-      }
-    </div>
+    <div className='frogsCateContainer'>
+    <h1>Peruse All of our Frogs</h1>
+  <div className='frogsContainer'>
+    {frogs.map(frog => (
+      <div key={frog.id}>
+        <FrogCard frog={frog} />
+      </div>
+    ))  
+    }
+  </div> 
+  </div>
   )
 }

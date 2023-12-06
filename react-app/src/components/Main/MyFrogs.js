@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllFrogsThunk } from '../../store/frogs';
+import FrogCard from '../FrogCard';
 
 
 export default function MyFrogs() {
@@ -26,14 +27,13 @@ export default function MyFrogs() {
   const myfrogs = frogs.filter(frog => frog.owner_id === sessionUser.id );
 
   return (
-    <div>
+    <div className='frogsContainer'>
       {sessionUser ? (
         myfrogs.length > 0 ? (
           myfrogs.map(frog => (
             <div key={frog.id}>
-              <div>{frog.name}</div>
-              <div><img className="landingImage" src={`${frog.pictureUrl}`} alt={frog.name} /></div>
-            </div>
+            <FrogCard frog={frog} />
+          </div>
           ))
         ) : (
           <div>You have no frogs for sale</div>

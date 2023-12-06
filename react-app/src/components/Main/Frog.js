@@ -102,7 +102,7 @@ export default function Frog() {
   };
 
   return (
-    <div>
+    <div className="CartContainer">
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">
@@ -122,8 +122,7 @@ export default function Frog() {
       <div>
         <img src={`${frog.pictureUrl}`} alt={frog.name}  className="FrogMainImage"/>
       </div>
-      <div>{frog.name}</div>
-      <div> {frog.species}</div>
+      <div>Name: {frog.name}</div>
 
       <div> Gender: {frog.gender}</div>
 

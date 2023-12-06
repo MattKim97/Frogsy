@@ -70,7 +70,7 @@ def seed_frogs():
         age=5,
         price=250,
         stock=7,
-        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/Mikey.jpg",
+        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/ABSOLUTE+UNIT.jpg",
         description="Mikey goes to the frog gym from 5am to 5pm every day",
         category="big"
     )
@@ -82,7 +82,7 @@ def seed_frogs():
         age=1,
         price=300,
         stock=1,
-        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/ABSOLUTE+UNIT.jpg",
+        pictureUrl="https://frogsyimg.s3.us-west-1.amazonaws.com/Mikey.jpg",
         description="SO HUGE SO BIG SO LARGE",
         category="big"
     )

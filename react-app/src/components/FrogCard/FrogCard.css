@@ -1,6 +1,6 @@
 .FrogCardStyle{
-    width: 200px;
-    height: 200px;
+    width: 400px;
+    height: 400px;
     box-sizing: border-box;
     cursor: pointer;
     margin: 5px auto;
@@ -9,18 +9,27 @@
     align-items: center;
     justify-content: space-around;
     text-decoration: none;
-    background-color: #6f9580;
-    border-radius: 25px;
+    /* background-color: #6f9580; */
+    border-radius: 50px;
+    font-size: large;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-.FrogCardImageMain{
-    width: 100px;
-    height: 100px;
+.FrogCardImageMain {
+    width: 250px;
+    height: 250px;
+    border: 2px black solid;
+    /* width: 200px;
+    height: 200px; */
     object-fit: cover;
+    border-radius: 50%;
 }
 
 .FrogCardStyle:hover{
     background-color: rgb(169, 179, 136);
+    /* border: 2px black solid;     */
+    box-shadow: 2px 2px 2px black;
 }
 
 .FrogCardName{

@@ -4,10 +4,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import {
-  deleteFrogThunk,
-  getAllFrogsThunk,
-} from "../../store/frogs";
+import { deleteFrogThunk, getAllFrogsThunk } from "../../store/frogs";
 import { useState } from "react";
 import { useRef } from "react";
 import { addToCartThunk } from "../../store/cart";
@@ -16,7 +13,7 @@ export default function Frog() {
   const history = useHistory();
   const { frogId } = useParams();
   const sessionUser = useSelector((state) => state.session.user);
-  console.log("🚀 ~ file: Frog.js:19 ~ Frog ~ sessionUser:", sessionUser)
+  console.log("🚀 ~ file: Frog.js:19 ~ Frog ~ sessionUser:", sessionUser);
   const frogs = Object.values(useSelector((state) => state.frogs));
   console.log("🚀 ~ file: Frog.js:13 ~ Frog ~ frogs:", frogs);
   const dispatch = useDispatch();
@@ -75,20 +72,18 @@ export default function Frog() {
     if (quantity > frog.stock) {
       if (frog.stock === 0) {
         window.alert("This frog is out of stock");
-      }
-      else {
+      } else {
         window.alert(`There are only ${frog.stock} of this frog left in stock`);
       }
       return;
     }
-    const response = await dispatch(addToCartThunk(frog.id , quantity));
+    const response = await dispatch(addToCartThunk(frog.id, quantity));
     if (!response.errors) {
-      history.push('/cart');
+      history.push("/cart");
     } else {
-      console.error('Failed to add frog to cart');
+      console.error("Failed to add frog to cart");
     }
   };
-
 
   const handleDeleteKeep = async () => {
     const response = await dispatch(deleteFrogThunk(frog.id));
@@ -120,7 +115,11 @@ export default function Frog() {
         </div>
       )}
       <div>
-        <img src={`${frog.pictureUrl}`} alt={frog.name}  className="FrogMainImage"/>
+        <img
+          src={`${frog.pictureUrl}`}
+          alt={frog.name}
+          className="FrogMainImage"
+        />
       </div>
       <div>Name: {frog.name}</div>
 
@@ -137,14 +136,26 @@ export default function Frog() {
       <div>Description: {frog.description}</div>
 
       <div>Frog Category: {frog.category}</div>
-      <input type="number" value={quantity} min={1} max={frog.stock} onChange={(e) => setQuantity(e.target.value)} />
-      <button onClick={handleAddToCart}>Add to Cart</button>
-      {sessionUser ? sessionUser.id === frog.owner_id ? (
-        <div>
-          <button onClick={handleEdit}>Edit</button>
-          <button onClick={handleDelete}>Delete</button>
-        </div>
-      ) : null : null}
+      {sessionUser ? (
+        <input
+          type="number"
+          value={quantity}
+          min={1}
+          max={frog.stock}
+          onChange={(e) => setQuantity(e.target.value)}
+        />
+      ) : null}
+      {sessionUser ? (
+        <button onClick={handleAddToCart}>Add to Cart</button>
+      ) : null}
+      {sessionUser ? (
+        sessionUser.id === frog.owner_id ? (
+          <div>
+            <button onClick={handleEdit}>Edit</button>
+            <button onClick={handleDelete}>Delete</button>
+          </div>
+        ) : null
+      ) : null}
     </div>
   );
 }

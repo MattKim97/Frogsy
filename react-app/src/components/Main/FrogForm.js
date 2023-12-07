@@ -62,6 +62,14 @@ export default function FrogForm() {
         setErrors((prevErrors) => ({ ...prevErrors, stock: "stock must be a positive number" }));
     }
 
+    if (formData.image === null) {
+        setErrors((prevErrors) => ({ ...prevErrors, image: "Please upload an image of your frog" }));
+    }
+
+    if (formData.species === null) {
+        setErrors((prevErrors) => ({ ...prevErrors, species: "Please enter a species" }));
+    }
+
     const response = await dispatch(createFrogThunk(formDataToSend));
 
     if (!response.errors) {
@@ -83,7 +91,7 @@ export default function FrogForm() {
             value={formData.name}
             onChange={handleInputChange}
           />
-          {errors.name && <div style={{ color: "red" }}>{errors.name}</div>}
+          {errors.name && <div className="errors">{errors.name}</div>}
         </label>
 
         <br />
@@ -97,7 +105,7 @@ export default function FrogForm() {
             onChange={handleInputChange}
           />
           {errors.species && (
-            <div style={{ color: "red" }}>{errors.species}</div>
+            <div className="errors">{errors.species}</div>
           )}
         </label>
 
@@ -110,7 +118,7 @@ export default function FrogForm() {
             name="image"
             onChange={handleInputChange}
           />
-          {errors.image && <div style={{ color: "red" }}>{errors.image}</div>}
+          {errors.image && <div className="errors">{errors.image}</div>}
         </label>
 
         <br />
@@ -125,7 +133,7 @@ export default function FrogForm() {
             <option value={"male"}>Male</option>
             <option value={"female"}>Female</option>
           </select>
-          {errors.gender && <div style={{ color: "red" }}>{errors.gender}</div>}
+          {errors.gender && <div className="errors">{errors.gender}</div>}
         </label>
         <br/>
 
@@ -138,7 +146,7 @@ export default function FrogForm() {
                 min={0}
                 onChange={handleInputChange}
             />
-            {errors.age && <div style={{ color: "red" }}>{errors.age}</div>}
+            {errors.age && <div className="errors">{errors.age}</div>}
         </label>
         <br/>
 
@@ -151,7 +159,7 @@ export default function FrogForm() {
                 min={0}
                 onChange={handleInputChange}
             />
-            {errors.price && <div style={{ color: "red" }}>{errors.price}</div>}
+            {errors.price && <div className="errors">{errors.price}</div>}
         </label>
         <br/>
 
@@ -164,18 +172,18 @@ export default function FrogForm() {
                 min={0}
                 onChange={handleInputChange}
             />
-            {errors.stock && <div style={{ color: "red" }}>{errors.stock}</div>}
+            {errors.stock && <div className="errors">{errors.stock}</div>}
         </label>
         <br/>
 
         <label>
-            Description:
+            Description(optional)):
             <textarea
                 name="description"
                 value={formData.description}
                 onChange={handleInputChange}
             />
-            {errors.description && <div style={{ color: "red" }}>{errors.description}</div>}
+            {errors.description && <div className="errors">{errors.description}</div>}
         </label>
 
         <br />
@@ -194,7 +202,7 @@ export default function FrogForm() {
                 <option value={"sad"}>Sad</option>
             </select>
             {errors.category && (
-                <div style={{ color: "red" }}>{errors.category}</div>
+                <div className="errors">{errors.category}</div>
             )}
         </label>
 

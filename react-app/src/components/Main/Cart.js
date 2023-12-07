@@ -88,7 +88,12 @@ export default function Cart() {
                 value={quantity}
                 min={1}
                 max={quantityStock}
-                onChange={(e) => setQuantity(e.target.value)}
+                onChange={(e) => {
+                  const enteredValue = e.target.value;
+                  // Ensure the entered value is within the allowed range
+                  const newValue = Math.min(Math.max(enteredValue, 1), quantityStock);
+                  setQuantity(newValue);
+                }}
               />
               <button
                 className="deleteButton"
@@ -137,7 +142,7 @@ export default function Cart() {
         ) : (
           <div>You have no frogs in your cart</div>
         )
-      ) : null}
+      ) : <h2>Please log in to view your cart</h2>}
       <div>
         {sessionUser && cart.items && cart.items.length > 0 ? (
           <div>
@@ -147,7 +152,7 @@ export default function Cart() {
           null
         )}
       </div>
-      <button onClick={handleCheckOut}>Checkout</button>
+      {sessionUser ? <button onClick={handleCheckOut}>Checkout</button> : null}
     </div>
   );
 }

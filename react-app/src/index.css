@@ -1,4 +1,11 @@
 /* TODO Add site wide styles */
+html{
+  margin-left: 0px;
+  margin-right: 0px;
+  /* background-color: rgb(254, 250, 224); */
+}
+
+
 .FrogCardContainer{
   text-decoration: none;
 }
@@ -83,6 +90,15 @@
     align-items: center;
     justify-content: center;
     margin-top: 20px;
+    /* background-color: rgb(185, 148, 112); */
+    /* background-color: #6f9580; */
+    background-color: rgb(95, 111, 82);
+    border-radius: 50px;
+    padding-bottom: 50px;
+    box-shadow: 5px 2px 2px black;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 20px;
    }
 
    .buttonContainer{
@@ -94,7 +110,7 @@
    }
 
    .categoryButtons{
-    background: lightgreen;
+    background: #6f9580;
     color: black;
     border-radius: 25px;
     width: 255px;
@@ -104,6 +120,30 @@
     margin-bottom: 10px;
    }
 
+   .categoryButtons:hover{
+    background: rgb(169, 179, 136);
+   }
+
+   .landinggifcontainer{
+    /* background-image: url("https://frogsyimg.s3.us-west-1.amazonaws.com/lotad-pokemon.gif"); */
+    object-fit: cover;
+    width: 1468px;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   }
+
+   .aboutustextcontainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 800px;
+    font-weight: bolder;
+   }
+
    .AboutUsContainer{
     display: flex;
     flex-direction: column;
@@ -111,8 +151,17 @@
     justify-content: center;
    }
 
-   .AboutUsContainer > p{
-    width: 50%;
+   body{
+    background-image: url("https://frogsyimg.s3.us-west-1.amazonaws.com/lotad-pokemon.gif");
+    /* background-image: url("https://frogsyimg.s3.us-west-1.amazonaws.com/sebastian-unrau-sp-p7uuT0tw-unsplash.jpg"); */
+    /* background-image: url("https://frogsyimg.s3.us-west-1.amazonaws.com/zdenek-machacek-HYTwWSE5ztw-unsplash.jpg"); */
+    /* background-image: url("https://frogsyimg.s3.us-west-1.amazonaws.com/david-clode-DCelW4ytxfM-unsplash.jpg"); */
+    /* background-image: url("https://frogsyimg.s3.us-west-1.amazonaws.com/david-clode-hIfznmEyzOE-unsplash.jpg"); */
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: darken;
+    height: 150vh;
    }
 
    .CartContainer{
@@ -142,4 +191,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.errors{
+  color: red;
+  font-weight: bold;
 }

@@ -114,48 +114,68 @@ export default function Frog() {
           </div>
         </div>
       )}
-      <div>
-        <img
-          src={`${frog.pictureUrl}`}
-          alt={frog.name}
-          className="FrogMainImage"
-        />
-      </div>
-      <div>Name: {frog.name}</div>
+      <div className="frogDetailsContainer">
+        <div className="frogImageContainerDiv">
+          <img
+            src={`${frog.pictureUrl}`}
+            alt={frog.name}
+            className="FrogMainImage"
+          />
+        </div>
+        <div className="FrogDetailsTextContainerDiv">
+          <div>Name: {frog.name}</div>
 
-      <div> Gender: {frog.gender}</div>
+          <div> Gender: {frog.gender}</div>
 
-      <div> Age: {frog.age}</div>
+          <div> Age: {frog.age}</div>
 
-      <div>Species: {frog.species} </div>
+          <div>Species: {frog.species} </div>
 
-      <div> Price: {frog.price}</div>
+          <div> Price: ${frog.price}</div>
 
-      <div> Stock: {frog.stock > 0 ? frog.stock : "OUT OF STOCK"}</div>
+          <div> Stock: {frog.stock > 0 ? frog.stock : "OUT OF STOCK"}</div>
 
-      <div>Description: {frog.description}</div>
+          <div>Description: {frog.description}</div>
 
-      <div>Frog Category: {frog.category}</div>
+          <div>Frog Category: {frog.category}</div>
+        </div>
+        <div className="frogDetailsButtons">
+          
       {sessionUser ? (
-        <input
-          type="number"
-          value={quantity}
-          min={1}
-          max={frog.stock}
-          onChange={(e) => setQuantity(e.target.value)}
-        />
+        <div> <input
+        type="number"
+        value={quantity}
+        min={1}
+        className="frogDetailQuantityInput"
+        max={frog.stock}
+        onChange={(e) => setQuantity(e.target.value)}
+      /> </div>
       ) : null}
       {sessionUser ? (
-        <button onClick={handleAddToCart}>Add to Cart</button>
+        <button className="cartButtons" onClick={handleAddToCart}>
+          Add to Cart
+        </button>
       ) : null}
       {sessionUser ? (
         sessionUser.id === frog.owner_id ? (
-          <div>
-            <button onClick={handleEdit}>Edit</button>
-            <button onClick={handleDelete}>Delete</button>
-          </div>
+            <div>
+              <button className="cartButtons" onClick={handleEdit}>
+                Edit
+              </button>
+            </div>
         ) : null
       ) : null}
+      {sessionUser ? (
+        sessionUser.id === frog.owner_id ? (
+            <div>
+              <button className="cartButtons" onClick={handleDelete}>
+                Delete
+              </button>
+            </div>
+        ) : null
+      ) : null}
+        </div>
+      </div>
     </div>
   );
 }

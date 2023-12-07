@@ -133,23 +133,23 @@ export default function FrogUpdateForm() {
   return (
     <div className="formsContainer">
       <form className="formsStyle" encType="multipart/form-data" onSubmit={handleSubmit}>
-        <h2>Update A Frog</h2>
-        <label>
-          Frog name:
+        <h1>Update A Frog</h1>
+       <div>Frog name:</div>
           <input
+          className="formsInput"
             type="text"
             name="name"
             value={formData.name}
             onChange={handleInputChange}
           />
           {errors.name && <div className="errors">{errors.name}</div>}
-        </label>
+
 
         <br />
 
-        <label>
-          Species:
+        <div>Frog Species:</div>
           <input
+          className="formsInput"
             type="text"
             name="species"
             value={formData.species}
@@ -158,7 +158,7 @@ export default function FrogUpdateForm() {
           {errors.species && (
             <div className="errors">{errors.species}</div>
           )}
-        </label>
+
 
         <br />
         <label>
@@ -173,9 +173,12 @@ export default function FrogUpdateForm() {
         </label>
 
         <br />
+        <div>Gender:</div>
         <label>
-          Gender:
+         
           <select
+                      className="genderInput"
+
             name="gender"
             value={formData.gender}
             onChange={handleInputChange}
@@ -187,45 +190,44 @@ export default function FrogUpdateForm() {
         </label>
         <br />
 
-        <label>
-          Age:
+          <div>Age:</div>
           <input
+          className="formsInput"
             type="number"
             name="age"
             value={formData.age}
             onChange={handleInputChange}
           />
           {errors.age && <div className="errors">{errors.age}</div>}
-        </label>
+  
         <br />
 
-        <label>
-          Price:
+       <div>Price:</div>
           <input
+          className="formsInput"
             type="number"
             name="price"
             value={formData.price}
             onChange={handleInputChange}
           />
           {errors.price && <div className="errors">{errors.price}</div>}
-        </label>
+       
         <br />
 
-        <label>
-          Stock:
+   <div>Stock:</div>
           <input
+          className="formsInput"
             type="number"
             name="stock"
             value={formData.stock}
             onChange={handleInputChange}
           />
           {errors.stock && <div className="errors">{errors.stock}</div>}
-        </label>
         <br />
-
+<div>Description:</div>
         <label>
-          Description:
           <textarea
+          className="descriptionInput"
             name="description"
             value={formData.description}
             onChange={handleInputChange}
@@ -237,12 +239,12 @@ export default function FrogUpdateForm() {
 
         <br />
 
-        <label>
-          Category:
+<div>Category:</div>
           <select
             name="category"
             value={formData.category}
             onChange={handleInputChange}
+            className="genderInput"
           >
             <option value={"big"}>Big</option>
             <option value={"angry"}>Angry</option>
@@ -252,7 +254,6 @@ export default function FrogUpdateForm() {
           {errors.category && (
             <div className="errors">{errors.category}</div>
           )}
-        </label>
 
         <br />
 

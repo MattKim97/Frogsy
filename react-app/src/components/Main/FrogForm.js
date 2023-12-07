@@ -82,23 +82,26 @@ export default function FrogForm() {
   return (
     <div className="formsContainer">
       <form className="formsStyle"  encType="multipart/form-data" onSubmit={handleSubmit}>
-        <h2>Sell a Frog!</h2>
-        <label>
-          Frog name:
+        <h1>Sell a Frog!</h1>
+        <div>
+          Frog Name:
+        </div>
           <input
+            className="formsInput"
             type="text"
             name="name"
             value={formData.name}
             onChange={handleInputChange}
           />
           {errors.name && <div className="errors">{errors.name}</div>}
-        </label>
+
 
         <br />
 
-        <label>
-          Species:
+        <div>Species:</div>
           <input
+                      className="formsInput"
+
             type="text"
             name="species"
             value={formData.species}
@@ -107,11 +110,11 @@ export default function FrogForm() {
           {errors.species && (
             <div className="errors">{errors.species}</div>
           )}
-        </label>
+
 
         <br />
+        <div>Frog Image:</div>
         <label>
-          Frog image:
           <input
             className="inputFileForm"
             type="file"
@@ -122,9 +125,9 @@ export default function FrogForm() {
         </label>
 
         <br />
-        <label>
-          Gender:
+      <div>Gender:</div>
           <select
+          className="genderInput"
             name="gender"
             value={formData.gender}
             onChange={handleInputChange}
@@ -134,12 +137,13 @@ export default function FrogForm() {
             <option value={"female"}>Female</option>
           </select>
           {errors.gender && <div className="errors">{errors.gender}</div>}
-        </label>
+   
         <br/>
 
-        <label>
-            Age:
+          <div>Age:</div>
             <input
+                        className="formsInput"
+
                 type="number"
                 name="age"
                 value={formData.age}
@@ -147,12 +151,12 @@ export default function FrogForm() {
                 onChange={handleInputChange}
             />
             {errors.age && <div className="errors">{errors.age}</div>}
-        </label>
         <br/>
 
-        <label>
-            Price:
+        <div>Price:</div>
             <input
+                        className="formsInput"
+
                 type="number"
                 name="price"
                 value={formData.price}
@@ -160,12 +164,11 @@ export default function FrogForm() {
                 onChange={handleInputChange}
             />
             {errors.price && <div className="errors">{errors.price}</div>}
-        </label>
         <br/>
-
-        <label>
-            Stock:
+            <div>Stock:</div>
             <input
+                        className="formsInput"
+
                 type="number"
                 name="stock"
                 value={formData.stock}
@@ -173,24 +176,26 @@ export default function FrogForm() {
                 onChange={handleInputChange}
             />
             {errors.stock && <div className="errors">{errors.stock}</div>}
-        </label>
         <br/>
 
-        <label>
-            Description(optional)):
+        <div>Description(optional):</div>
+            <label>
             <textarea
+            className="descriptionInput"
                 name="description"
                 value={formData.description}
                 onChange={handleInputChange}
             />
             {errors.description && <div className="errors">{errors.description}</div>}
-        </label>
+
+            </label>
+  
 
         <br />
 
-        <label>
-            Category:
+        <div>Category:</div>
             <select
+            className="genderInput"
                 name="category"
                 value={formData.category}
                 onChange={handleInputChange}
@@ -204,7 +209,7 @@ export default function FrogForm() {
             {errors.category && (
                 <div className="errors">{errors.category}</div>
             )}
-        </label>
+    
 
         <br />
 

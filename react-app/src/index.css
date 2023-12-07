@@ -2,7 +2,7 @@
 html{
   margin-left: 0px;
   margin-right: 0px;
-  /* background-color: rgb(254, 250, 224); */
+  background-color: rgb(254, 250, 224);
 }
 
 
@@ -31,7 +31,7 @@ html{
   
   .modal-content {
     position: absolute;
-    background-color: white;
+    background-color: rgb(254, 250, 224);
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -40,6 +40,16 @@ html{
     padding-right: 20px;
     padding-bottom: 20px;
     text-align: center;
+  }
+
+  .quantityInput{
+    width: 295px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid black;
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: rgb(254, 250, 224);
   }
 
   .modal-content > h1 {
@@ -57,8 +67,8 @@ html{
    }
    
    .deleteButton {
-     background: red;
-     color: white;
+     background: #6f9580;
+     color: black;
      margin-right: 10px;
      border-radius: 5px;
      width: 300px;
@@ -69,7 +79,7 @@ html{
    }
    
    .keepButton {
-     background: white;
+     background: rgb(95, 111, 82);
      color: black;
      border-radius: 5px;
      width: 300px;
@@ -77,10 +87,18 @@ html{
      cursor: pointer;
      box-shadow: 5px 2px 2px black;
    }
+
+   .deleteButton:hover{
+    background: rgb(169, 179, 136);
+   }
+
+   .keepButton:hover{
+    background: rgb(169, 179, 136);
+   }
    
    .FrogMainImage{
-      width: 200px;
-      height: 200px;
+      width: 400px;
+      height: 400px;
       object-fit: cover;
    }
 
@@ -125,23 +143,24 @@ html{
    }
 
    .landinggifcontainer{
-    /* background-image: url("https://frogsyimg.s3.us-west-1.amazonaws.com/lotad-pokemon.gif"); */
-    object-fit: cover;
+    background-image: url("https://frogsyimg.s3.us-west-1.amazonaws.com/lotad-pokemon.gif");
+    background-size: cover;
     width: 1468px;
     height: 800px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
    }
 
    .aboutustextcontainer{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     width: 800px;
     font-weight: bolder;
+    color:  rgb(254, 250, 224);
    }
 
    .AboutUsContainer{
@@ -152,7 +171,7 @@ html{
    }
 
    body{
-    background-image: url("https://frogsyimg.s3.us-west-1.amazonaws.com/lotad-pokemon.gif");
+    /* background-image: url("https://frogsyimg.s3.us-west-1.amazonaws.com/lotad-pokemon.gif"); */
     /* background-image: url("https://frogsyimg.s3.us-west-1.amazonaws.com/sebastian-unrau-sp-p7uuT0tw-unsplash.jpg"); */
     /* background-image: url("https://frogsyimg.s3.us-west-1.amazonaws.com/zdenek-machacek-HYTwWSE5ztw-unsplash.jpg"); */
     /* background-image: url("https://frogsyimg.s3.us-west-1.amazonaws.com/david-clode-DCelW4ytxfM-unsplash.jpg"); */
@@ -196,4 +215,145 @@ html{
 .errors{
   color: red;
   font-weight: bold;
+}
+
+.cartButtons{
+  background: #6f9580;
+  color: black;
+  border-radius: 25px;
+  width: 255px;
+  height: 50px;
+  cursor: pointer;
+  box-shadow: 5px 2px 2px black;
+  margin-bottom: 10px;
+}
+
+.cartButtons:hover{
+  background: rgb(169, 179, 136);
+}
+
+.cartContainer{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 10px  ;
+}
+
+.frogInfoContainer{
+  display: flex;
+  flex-direction: column;
+}
+
+.frogInfoContainer > div{
+  font-size: large;
+}
+
+.formsSubmit{
+  background: #6f9580;
+  color: black;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 5px 2px 2px black;
+  margin-bottom: 10px;
+  width: 300px;
+  height: 50px;
+}
+
+.formsSubmit:hover{
+  background: rgb(169, 179, 136);
+}
+
+
+.formsContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.formsStyle{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 400px;
+  height: fit-content;
+}
+
+.formsInput{
+  width: 300px;
+  height: 20px;
+  border-radius: 25px;
+}
+
+.descriptionInput{
+  width: 300px;
+  height: 100px;
+  resize: none;
+}
+
+.PageGridContainer{
+  display: grid;
+  grid-template-areas:
+                      "header"
+                      "content "
+                       "main"
+                       "footer"; ;
+  grid-template-rows: 100px 200px 4fr 50px;
+  min-height: 100vh;
+}
+
+.frogDetailsContainer{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px ;
+  font-size: x-large;
+}
+
+.frogDetailQuantityInput{
+  width: 250px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid black;
+  text-align: center;
+  margin-bottom: 10px;
+  background-color: rgb(254, 250, 224);
+  border-radius: 25px;
+}
+
+.FrogDetailsTextContainerDiv{
+  display: flex;
+  flex-direction: column;
+  gap: 20px ;
+  width: 400px;
+}
+
+.frogDetailsButtons{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.genderInput{
+  width: 300px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid black;
+  text-align: center;
+  margin-bottom: 10px;
+  background-color: white;
+  border-radius: 25px;
+}
+
+.myLogo{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.landinggifcontainer h1{
+  color:  rgb(254, 250, 224);
+
 }

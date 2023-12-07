@@ -8,12 +8,12 @@ function App() {
 
 
   return (
-    <>
+    <div className="PageGridContainer">
     <div><Header/></div>
     <div><Categories/></div>
     <div><Main/></div>
     <div className="FooterContainer"><Footer /></div>
-    </>
+    </div>
   );
 }
 

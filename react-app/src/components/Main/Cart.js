@@ -9,6 +9,8 @@ import {
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useEffect } from "react";
 import { useState } from "react";
+import OpenModalButton from "../OpenModalButton";
+import LoginFormModal from "../LoginFormModal";
 
 export default function Cart() {
   const history = useHistory();
@@ -72,7 +74,6 @@ export default function Cart() {
   if (!cart) {
     return null;
   }
-  console.log("🚀 ~ file: Cart.js:46 ~ Cart ~ cart.items:", cart.items);
 
   return (
     <div className="CartContainer">
@@ -85,6 +86,7 @@ export default function Cart() {
             <div className="modalButtons">
               <input
                 type="number"
+                className="quantityInput"
                 value={quantity}
                 min={1}
                 max={quantityStock}
@@ -112,11 +114,7 @@ export default function Cart() {
       {sessionUser ? (
         cart.items && cart.items.length > 0 ? (
           cart.items.map((frog) => (
-            <div key={frog.id}>
-              <div>Name: {frog.name}</div>
-              <div>Price: {frog.price}</div>
-              <div>Quantity: {frog.quantity}</div>
-              <div>Order Price: {frog.price * frog.quantity}</div>
+            <div key={frog.id} className="cartContainer">
               <div>
                 <img
                   className="FrogCardImage"
@@ -124,7 +122,14 @@ export default function Cart() {
                   alt={frog.name}
                 />
               </div>
+              <div className="frogInfoContainer">
+              <div>Name: {frog.name}</div>
+              <div>Price: {frog.price}</div>
+              <div>Quantity: {frog.quantity}</div>
+              <div>Order Price: {frog.price * frog.quantity}</div>
+              </div>
               <button
+              className="cartButtons"
                 onClick={() => {
                   handleEditQuantity();
                   setQuantity(frog.quantity);
@@ -134,25 +139,30 @@ export default function Cart() {
               >
                 Edit Quantity
               </button>
-              <button onClick={() => handleDeleteFrog(frog.id)}>
+              <button className="cartButtons" onClick={() => handleDeleteFrog(frog.id)}>
                 Delete Frog
               </button>
             </div>
           ))
         ) : (
-          <div>You have no frogs in your cart</div>
+          <h2>You have no frogs in your cart</h2>
         )
-      ) : <h2>Please log in to view your cart</h2>}
+      ) : <OpenModalButton
+      buttonText="Log In to view your Cart"
+      modalComponent={<LoginFormModal />}
+      customClassName="custom-modal-button"
+      className="custom-modal-button"
+    />}
       <div>
         {sessionUser && cart.items && cart.items.length > 0 ? (
           <div>
-            <div>Order Total: {calculateOrderTotal(cart.items)}</div>
+            <h2>Order Total: {calculateOrderTotal(cart.items)}</h2>
           </div>
         ) : (
           null
         )}
       </div>
-      {sessionUser ? <button onClick={handleCheckOut}>Checkout</button> : null}
+      {sessionUser && cart.items && cart.items.length > 0 ? <button className="cartButtons" onClick={handleCheckOut}>Checkout</button> : null}
     </div>
   );
 }

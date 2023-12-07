@@ -8,7 +8,7 @@ export default function Logo() {
   }
   return (
     <div className='LogoContainer' onClick={home}>
- <h1>Frogsy</h1>
+      <img className='myLogo' src='https://frogsyimg.s3.us-west-1.amazonaws.com/Comic_Sans.png' alt='logo' />
     </div>
   )
 }

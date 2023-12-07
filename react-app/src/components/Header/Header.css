@@ -1,12 +1,11 @@
-html{
-    margin-left: 50px;
-    margin-right: 50px;
-}
+
 
 .HeaderStyle{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 .LogoContainer{
     cursor: pointer;
@@ -16,15 +15,6 @@ html{
     justify-content: center;
 }
 
-.spotifrog-logo {
-    height: 30px;
-    width: 30px;
-    padding-right: 5px;
-}
-
-.fa-frog{
-    color: var(--spotifyGreen);
-}
 
 .classLogoContainer{
     cursor: pointer;
@@ -39,4 +29,19 @@ html{
 
 .fa-cart-shopping{
     font-size: 40px;
+    cursor: pointer;
+    color: #6f9580;
+}
+
+.fa-user-circle{
+    cursor: pointer;
+    color: #6f9580;
+}
+
+.fa-user-circle:hover{
+    color: rgb(169, 179, 136);
+}
+
+.fa-cart-shopping:hover{
+    color: rgb(169, 179, 136);
 }

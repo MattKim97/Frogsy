@@ -30,8 +30,8 @@ ul{
 }
 
 .userProfileImage{
-  height: 50px;
-  width: 50px;
+  height: 55px;
+  width: 55px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -40,7 +40,7 @@ ul{
 }
 
 .fa-user-circle {
-  font-size: 50px;
+  font-size: 55px;
 }
 
 .hidden {
@@ -60,7 +60,10 @@ ul{
 .navigationButtons{
   border-radius: 25px;
   margin-top: 5px;
-  background-color: white;
-  
+  background-color: #6f9580;
   cursor: pointer;
+}
+
+.navigationButtons:hover{
+  background-color: rgb(169, 179, 136);
 }

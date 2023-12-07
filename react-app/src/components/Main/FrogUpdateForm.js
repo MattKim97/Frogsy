@@ -133,32 +133,32 @@ export default function FrogUpdateForm() {
   return (
     <div className="formsContainer">
       <form className="formsStyle" encType="multipart/form-data" onSubmit={handleSubmit}>
-        <h2>Update A Frog</h2>
-        <label>
-          Frog name:
+        <h1>Update A Frog</h1>
+       <div>Frog name:</div>
           <input
+          className="formsInput"
             type="text"
             name="name"
             value={formData.name}
             onChange={handleInputChange}
           />
-          {errors.name && <div style={{ color: "red" }}>{errors.name}</div>}
-        </label>
+          {errors.name && <div className="errors">{errors.name}</div>}
+
 
         <br />
 
-        <label>
-          Species:
+        <div>Frog Species:</div>
           <input
+          className="formsInput"
             type="text"
             name="species"
             value={formData.species}
             onChange={handleInputChange}
           />
           {errors.species && (
-            <div style={{ color: "red" }}>{errors.species}</div>
+            <div className="errors">{errors.species}</div>
           )}
-        </label>
+
 
         <br />
         <label>
@@ -169,13 +169,16 @@ export default function FrogUpdateForm() {
             name="image"
             onChange={handleInputChange}
           />
-          {errors.image && <div style={{ color: "red" }}>{errors.image}</div>}
+          {errors.image && <div className="errors">{errors.image}</div>}
         </label>
 
         <br />
+        <div>Gender:</div>
         <label>
-          Gender:
+         
           <select
+                      className="genderInput"
+
             name="gender"
             value={formData.gender}
             onChange={handleInputChange}
@@ -183,66 +186,65 @@ export default function FrogUpdateForm() {
             <option value={"male"}>Male</option>
             <option value={"female"}>Female</option>
           </select>
-          {errors.gender && <div style={{ color: "red" }}>{errors.gender}</div>}
+          {errors.gender && <div className="errors">{errors.gender}</div>}
         </label>
         <br />
 
-        <label>
-          Age:
+          <div>Age:</div>
           <input
+          className="formsInput"
             type="number"
             name="age"
             value={formData.age}
             onChange={handleInputChange}
           />
-          {errors.age && <div style={{ color: "red" }}>{errors.age}</div>}
-        </label>
+          {errors.age && <div className="errors">{errors.age}</div>}
+  
         <br />
 
-        <label>
-          Price:
+       <div>Price:</div>
           <input
+          className="formsInput"
             type="number"
             name="price"
             value={formData.price}
             onChange={handleInputChange}
           />
-          {errors.price && <div style={{ color: "red" }}>{errors.price}</div>}
-        </label>
+          {errors.price && <div className="errors">{errors.price}</div>}
+       
         <br />
 
-        <label>
-          Stock:
+   <div>Stock:</div>
           <input
+          className="formsInput"
             type="number"
             name="stock"
             value={formData.stock}
             onChange={handleInputChange}
           />
-          {errors.stock && <div style={{ color: "red" }}>{errors.stock}</div>}
-        </label>
+          {errors.stock && <div className="errors">{errors.stock}</div>}
         <br />
-
+<div>Description:</div>
         <label>
-          Description:
           <textarea
+          className="descriptionInput"
             name="description"
             value={formData.description}
             onChange={handleInputChange}
           />
           {errors.description && (
-            <div style={{ color: "red" }}>{errors.description}</div>
+            <div className="errors">{errors.description}</div>
           )}
         </label>
 
         <br />
 
-        <label>
-          Category:
+<div>Category:</div>
           <select
             name="category"
             value={formData.category}
             onChange={handleInputChange}
+            className="genderInput"
           >
             <option value={"big"}>Big</option>
             <option value={"angry"}>Angry</option>
@@ -250,9 +252,8 @@ export default function FrogUpdateForm() {
             <option value={"sad"}>Sad</option>
           </select>
           {errors.category && (
-            <div style={{ color: "red" }}>{errors.category}</div>
+            <div className="errors">{errors.category}</div>
           )}
-        </label>
 
         <br />
 

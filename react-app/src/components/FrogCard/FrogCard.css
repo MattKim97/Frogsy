@@ -9,7 +9,8 @@
     align-items: center;
     justify-content: space-around;
     text-decoration: none;
-    background-color: lightgreen;
+    background-color: #6f9580;
+    border-radius: 25px;
 }
 
 .FrogCardImageMain{
@@ -19,7 +20,7 @@
 }
 
 .FrogCardStyle:hover{
-    background-color: darkgray;
+    background-color: rgb(169, 179, 136);
 }
 
 .FrogCardName{

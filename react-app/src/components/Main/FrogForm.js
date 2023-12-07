@@ -62,6 +62,14 @@ export default function FrogForm() {
         setErrors((prevErrors) => ({ ...prevErrors, stock: "stock must be a positive number" }));
     }
 
+    if (formData.image === null) {
+        setErrors((prevErrors) => ({ ...prevErrors, image: "Please upload an image of your frog" }));
+    }
+
+    if (formData.species === null) {
+        setErrors((prevErrors) => ({ ...prevErrors, species: "Please enter a species" }));
+    }
+
     const response = await dispatch(createFrogThunk(formDataToSend));
 
     if (!response.errors) {
@@ -74,49 +82,52 @@ export default function FrogForm() {
   return (
     <div className="formsContainer">
       <form className="formsStyle"  encType="multipart/form-data" onSubmit={handleSubmit}>
-        <h2>Sell a Frog!</h2>
-        <label>
-          Frog name:
+        <h1>Sell a Frog!</h1>
+        <div>
+          Frog Name:
+        </div>
           <input
+            className="formsInput"
             type="text"
             name="name"
             value={formData.name}
             onChange={handleInputChange}
           />
-          {errors.name && <div style={{ color: "red" }}>{errors.name}</div>}
-        </label>
+          {errors.name && <div className="errors">{errors.name}</div>}
+
 
         <br />
 
-        <label>
-          Species:
+        <div>Species:</div>
           <input
+                      className="formsInput"
+
             type="text"
             name="species"
             value={formData.species}
             onChange={handleInputChange}
           />
           {errors.species && (
-            <div style={{ color: "red" }}>{errors.species}</div>
+            <div className="errors">{errors.species}</div>
           )}
-        </label>
+
 
         <br />
+        <div>Frog Image:</div>
         <label>
-          Frog image:
           <input
             className="inputFileForm"
             type="file"
             name="image"
             onChange={handleInputChange}
           />
-          {errors.image && <div style={{ color: "red" }}>{errors.image}</div>}
+          {errors.image && <div className="errors">{errors.image}</div>}
         </label>
 
         <br />
-        <label>
-          Gender:
+      <div>Gender:</div>
           <select
+          className="genderInput"
             name="gender"
             value={formData.gender}
             onChange={handleInputChange}
@@ -125,64 +136,66 @@ export default function FrogForm() {
             <option value={"male"}>Male</option>
             <option value={"female"}>Female</option>
           </select>
-          {errors.gender && <div style={{ color: "red" }}>{errors.gender}</div>}
-        </label>
+          {errors.gender && <div className="errors">{errors.gender}</div>}
+   
         <br/>
 
-        <label>
-            Age:
+          <div>Age:</div>
             <input
+                        className="formsInput"
+
                 type="number"
                 name="age"
                 value={formData.age}
                 min={0}
                 onChange={handleInputChange}
             />
-            {errors.age && <div style={{ color: "red" }}>{errors.age}</div>}
-        </label>
+            {errors.age && <div className="errors">{errors.age}</div>}
         <br/>
 
-        <label>
-            Price:
+        <div>Price:</div>
             <input
+                        className="formsInput"
+
                 type="number"
                 name="price"
                 value={formData.price}
                 min={0}
                 onChange={handleInputChange}
             />
-            {errors.price && <div style={{ color: "red" }}>{errors.price}</div>}
-        </label>
+            {errors.price && <div className="errors">{errors.price}</div>}
         <br/>
-
-        <label>
-            Stock:
+            <div>Stock:</div>
             <input
+                        className="formsInput"
+
                 type="number"
                 name="stock"
                 value={formData.stock}
                 min={0}
                 onChange={handleInputChange}
             />
-            {errors.stock && <div style={{ color: "red" }}>{errors.stock}</div>}
-        </label>
+            {errors.stock && <div className="errors">{errors.stock}</div>}
         <br/>
 
-        <label>
-            Description:
+        <div>Description(optional):</div>
+            <label>
             <textarea
+            className="descriptionInput"
                 name="description"
                 value={formData.description}
                 onChange={handleInputChange}
             />
-            {errors.description && <div style={{ color: "red" }}>{errors.description}</div>}
-        </label>
+            {errors.description && <div className="errors">{errors.description}</div>}
+
+            </label>
+  
 
         <br />
 
-        <label>
-            Category:
+        <div>Category:</div>
             <select
+            className="genderInput"
                 name="category"
                 value={formData.category}
                 onChange={handleInputChange}
@@ -194,9 +207,9 @@ export default function FrogForm() {
                 <option value={"sad"}>Sad</option>
             </select>
             {errors.category && (
-                <div style={{ color: "red" }}>{errors.category}</div>
+                <div className="errors">{errors.category}</div>
             )}
-        </label>
+    
 
         <br />
 

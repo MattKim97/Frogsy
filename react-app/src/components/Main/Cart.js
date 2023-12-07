@@ -124,9 +124,9 @@ export default function Cart() {
               </div>
               <div className="frogInfoContainer">
               <div>Name: {frog.name}</div>
-              <div>Price: {frog.price}</div>
+              <div>Price: ${frog.price}</div>
               <div>Quantity: {frog.quantity}</div>
-              <div>Order Price: {frog.price * frog.quantity}</div>
+              <div>Order Price: ${frog.price * frog.quantity}</div>
               </div>
               <button
               className="cartButtons"
@@ -156,7 +156,7 @@ export default function Cart() {
       <div>
         {sessionUser && cart.items && cart.items.length > 0 ? (
           <div>
-            <h2>Order Total: {calculateOrderTotal(cart.items)}</h2>
+            <h2>Order Total: ${calculateOrderTotal(cart.items)}</h2>
           </div>
         ) : (
           null

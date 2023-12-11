@@ -115,11 +115,10 @@ html{
     /* background-color: #0E5814; */
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
-    padding-bottom: 60px;
+    /* border-radius: 25px; */
     box-shadow: inset 0 7.5px 2px hsla(0, 0%, 0%, 0.1);
-    margin-right: 50px;
-    margin-left: 50px;
     margin-bottom: 0px;
+    padding-bottom: 40px;
    }
 
    .buttonContainer{
@@ -151,7 +150,7 @@ html{
     background: url("https://frogsyimg.s3.us-west-1.amazonaws.com/lotad-pokemon.gif") rgba(0, 0, 0, 0.7);
     /* background-color: rgba(0, 0, 0, 0.7); */
     background-size: cover;
-    width: 1468px;
+    width: 100%;
     height: 800px;
     display: flex;
     flex-direction: column;
@@ -164,7 +163,7 @@ html{
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    width: 800px;
+    width: 50%;
     font-weight: bolder;
     color:  rgb(254, 250, 224);
    }
@@ -306,8 +305,8 @@ html{
                       "content "
                        "main"
                        "footer"; ;
-  grid-template-rows: 100px 200px 4fr 50px;
-  min-height: 100vh;
+  grid-template-rows: 100px 185px 4fr 50px;
+  /* min-height: 100vh; */
 }
 
 .frogDetailsContainer{

@@ -128,8 +128,9 @@ export default function Cart() {
               <div>Quantity: {frog.quantity}</div>
               <div>Order Price: ${frog.price * frog.quantity}</div>
               </div>
+              <div className="cartButtonsContainer">
               <button
-              className="cartButtons"
+              className="cartButtonsCart"
                 onClick={() => {
                   handleEditQuantity();
                   setQuantity(frog.quantity);
@@ -139,9 +140,10 @@ export default function Cart() {
               >
                 Edit Quantity
               </button>
-              <button className="cartButtons" onClick={() => handleDeleteFrog(frog.id)}>
+              <button className="cartButtonsCart" onClick={() => handleDeleteFrog(frog.id)}>
                 Delete Frog
               </button>
+                </div>
             </div>
           ))
         ) : (
@@ -153,7 +155,7 @@ export default function Cart() {
       customClassName="custom-modal-button"
       className="custom-modal-button"
     />}
-      <div>
+      <div className="checkOut">
         {sessionUser && cart.items && cart.items.length > 0 ? (
           <div>
             <h2>Order Total: ${calculateOrderTotal(cart.items)}</h2>

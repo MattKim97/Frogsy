@@ -12,5 +12,5 @@ class FrogForm(FlaskForm):
     age = IntegerField('age', validators=[InputRequired()])
     price = IntegerField('price', validators=[InputRequired()])
     stock = IntegerField('stock', validators=[InputRequired()])
-    description = StringField('description')
+    description = StringField('description', validators=[Length(max=100)])
     category = StringField('category', validators=[InputRequired()])

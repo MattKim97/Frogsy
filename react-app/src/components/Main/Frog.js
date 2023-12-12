@@ -97,7 +97,7 @@ export default function Frog() {
   };
 
   return (
-    <div className="CartContainer">
+    <div className="">
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">
@@ -115,7 +115,7 @@ export default function Frog() {
         </div>
       )}
       <div className="frogDetailsContainer">
-        <div className="frogImageContainerDiv">
+        {/* <div className="frogImageContainerDiv">
           <img
             src={`${frog.pictureUrl}`}
             alt={frog.name}
@@ -138,42 +138,89 @@ export default function Frog() {
           <div>Description: {frog.description}</div>
 
           <div>Frog Category: {frog.category}</div>
+        </div> */}
+        <div className="pokemonCard">
+          <div className="pokemonCardHeader">
+            <div className="pokemonCardLeftSide">
+              <div>{frog.name}</div>
+            </div>
+            <div className="pokemonCardRightSide">
+              <div>${frog.price}</div>
+              <div>
+                {frog.category === "big" ? (
+                  <i className="fa-solid fa-magnifying-glass-plus orange"></i>
+                ) : null}
+                {frog.category === "small" ? (
+                  <i className="fa-solid fa-magnifying-glass-minus pink"></i>
+                ) : null}
+                {frog.category === "happy" ? (
+                  <i className="fa-solid fa-face-smile blue"></i>
+                ) : null}
+                {frog.category === "angry" ? (
+                  <i className="fa-solid fa-face-angry red"></i>
+                ) : null}
+              </div>
+            </div>
+          </div>
+          <div className="pokemonCardImageContainer">
+            <img
+              src={`${frog.pictureUrl}`}
+              alt={frog.name}
+              className="pokemonCardImage"
+            />
+          </div>
+          <div className="pokemonCardDetailsContainer">
+            <div className="pokemonCardDetails">Stock Left: {frog.stock}</div>
+          </div>
+          <div className="pokemonCardFrogDetails">
+            <div>Species: {frog.species}</div>
+            <div>Age: {frog.age}</div>
+            <div>Category: {frog.category}</div>
+            </div>
+          <div className="pokemonCardDescription">
+            <p>{frog.description}</p>
+            </div>
         </div>
         <div className="frogDetailsButtons">
-          
-      {sessionUser ? (
-        <div> <input
-        type="number"
-        value={quantity}
-        min={1}
-        className="frogDetailQuantityInput"
-        max={frog.stock}
-        onChange={(e) => setQuantity(e.target.value)}
-      /> </div>
-      ) : null}
-      {sessionUser ? (
-        <button className="cartButtons" onClick={handleAddToCart}>
-          Add to Cart
-        </button>
-      ) : null}
-      {sessionUser ? (
-        sessionUser.id === frog.owner_id ? (
-            <div>
-              <button className="cartButtons" onClick={handleEdit}>
-                Edit
+          {sessionUser ? (
+            sessionUser.id !== frog.owner_id ? (
+              <div>
+                <input
+                  type="number"
+                  value={quantity}
+                  min={1}
+                  className="frogDetailQuantityInput"
+                  max={frog.stock}
+                  onChange={(e) => setQuantity(e.target.value)}
+                />
+              </div>
+            ) : null
+          ) : null}
+          {sessionUser ? (
+            sessionUser.id !== frog.owner_id ? (
+              <button className="cartButtons" onClick={handleAddToCart}>
+                Add to Cart
               </button>
-            </div>
-        ) : null
-      ) : null}
-      {sessionUser ? (
-        sessionUser.id === frog.owner_id ? (
-            <div>
-              <button className="cartButtons" onClick={handleDelete}>
-                Delete
-              </button>
-            </div>
-        ) : null
-      ) : null}
+            ) : null
+          ) : null}
+          {sessionUser ? (
+            sessionUser.id === frog.owner_id ? (
+              <div>
+                <button className="cartButtons" onClick={handleEdit}>
+                  Edit
+                </button>
+              </div>
+            ) : null
+          ) : null}
+          {sessionUser ? (
+            sessionUser.id === frog.owner_id ? (
+              <div>
+                <button className="cartButtons" onClick={handleDelete}>
+                  Delete
+                </button>
+              </div>
+            ) : null
+          ) : null}
         </div>
       </div>
     </div>

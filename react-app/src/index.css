@@ -192,7 +192,14 @@ html{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    min-height: 105vh;
+    height: max-content;
+   }
+
+   .checkOut{
+    display: flex;
+    flex-direction: column;
    }
 
    .formsContainer{
@@ -231,6 +238,22 @@ html{
   cursor: pointer;
   box-shadow: 5px 2px 2px black;
   margin-bottom: 10px;
+  color:  rgb(254, 250, 224);
+  font-size: large;
+
+}
+
+.cartButtonsCart{
+  background: #6f9580;
+  color: black;
+  border-radius: 25px;
+  width: 150;
+  height: 30px;
+  cursor: pointer;
+  box-shadow: 5px 2px 2px black;
+  margin-bottom: 10px;
+  color:  rgb(254, 250, 224);
+
 }
 
 .cartButtons:hover{
@@ -240,18 +263,34 @@ html{
 .cartContainer{
  display: flex;
  align-items: center;
- justify-content: center;
+ justify-content: space-evenly;
  gap: 10px  ;
  margin-top: 20px;
+ width: 70%;
+ background-color: #E5D3B3;
+ border-radius: 25px;
+ padding-top: 5px;
+ padding-bottom: 5px;
 }
+
+.cartContainer:hover{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+
+}
+
 
 .frogInfoContainer{
   display: flex;
   flex-direction: column;
+  /* min-width: 50px */
+  min-width: 125px;
+  max-width: 125px;
+  gap: 5px  ;
 }
 
 .frogInfoContainer > div{
   font-size: large;
+  font-weight: bold;
 }
 
 .formsSubmit{
@@ -316,6 +355,7 @@ html{
   gap: 20px ;
   font-size: x-large;
   align-items: center;
+  height: 103vh;
 }
 
 .frogDetailQuantityInput{
@@ -341,6 +381,7 @@ html{
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  
 }
 
 .genderInput{
@@ -401,7 +442,7 @@ html{
   padding: 10px;
   background-color: rgb(169, 179, 136);
   border: 15px solid #6f9580;
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 1); */
+
   border-radius: 25px;
   box-shadow: 5px 2px 2px black;
 
@@ -484,7 +525,7 @@ html{
 }
 
 .blue{
-  color: blue;
+  color: yellow;
   font-size: medium;
 
 }
@@ -493,4 +534,10 @@ html{
   color: red;
   font-size: medium;
 
+}
+
+.cartButtonsContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }

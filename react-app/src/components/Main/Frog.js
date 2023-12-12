@@ -97,7 +97,7 @@ export default function Frog() {
   };
 
   return (
-    <div className="CartContainer">
+    <div className="">
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">

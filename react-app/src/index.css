@@ -312,9 +312,10 @@ html{
 .frogDetailsContainer{
   margin-top: 20px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 20px ;
   font-size: x-large;
+  align-items: center;
 }
 
 .frogDetailQuantityInput{
@@ -361,5 +362,135 @@ html{
 
 .landinggifcontainer h1{
   color:  rgb(254, 250, 224);
+
+}
+
+.pokemonCardHeader{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: large;
+  font-weight: bold;
+  margin-bottom: 5px;
+  width: 260px;
+}
+
+.pokemonCardRightSide{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pokemonCardLeftSide{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.pokemonCard{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  padding: 10px;
+  background-color: rgb(169, 179, 136);
+  border: 15px solid #6f9580;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 1); */
+  border-radius: 25px;
+  box-shadow: 5px 2px 2px black;
+
+  /* padding-left: 15px;
+  padding-right: 15px; */
+  height: 420px;
+}
+
+.pokemonCardImageContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pokemonCardImage{
+  width: 250px;
+  height: 200px;
+  object-fit: cover;
+  border:  #006400 7px solid;
+  box-shadow: 5px 2px 2px black;
+
+}
+
+.pokemonCardDetailsContainer{
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.pokemonCardDetails{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: x-small;
+  color: black;
+  /* background-color:  #006400; */
+  width: 90%;
+  margin-top: 5px;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.pokemonCardDescription{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: medium;
+  color: black;
+  text-align: center;
+  /* font-weight: bold; */
+  /* word-wrap: break-word; */
+  word-break: break-all;
+}
+
+.pokemonCardFrogDetails{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: medium;
+  color: black;
+  font-weight: bold;
+  gap: 10px;
+}
+
+.orange{
+  color: orange;
+  font-size: medium;
+}
+
+.pink{
+  color: pink;
+  font-size: medium;
+
+}
+
+.blue{
+  color: blue;
+  font-size: medium;
+
+}
+
+.red{
+  color: red;
+  font-size: medium;
 
 }

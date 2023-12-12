@@ -197,6 +197,7 @@ export default function FrogUpdateForm() {
             name="age"
             value={formData.age}
             onChange={handleInputChange}
+            min={1}
           />
           {errors.age && <div className="errors">{errors.age}</div>}
   
@@ -209,6 +210,7 @@ export default function FrogUpdateForm() {
             name="price"
             value={formData.price}
             onChange={handleInputChange}
+            min={1}
           />
           {errors.price && <div className="errors">{errors.price}</div>}
        
@@ -221,6 +223,7 @@ export default function FrogUpdateForm() {
             name="stock"
             value={formData.stock}
             onChange={handleInputChange}
+            min={1}
           />
           {errors.stock && <div className="errors">{errors.stock}</div>}
         <br />
@@ -249,7 +252,7 @@ export default function FrogUpdateForm() {
             <option value={"big"}>Big</option>
             <option value={"angry"}>Angry</option>
             <option value={"happy"}>Happy</option>
-            <option value={"sad"}>Sad</option>
+            <option value={"small"}>Small</option>
           </select>
           {errors.category && (
             <div className="errors">{errors.category}</div>

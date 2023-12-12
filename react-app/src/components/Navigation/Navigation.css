@@ -4,6 +4,7 @@
   flex-direction: column;
   width: 100px;
 list-style-type: none;
+/* background-color: rgb(95, 111, 82); */
 }
 .profile-dropdown li {
   list-style-type: none;

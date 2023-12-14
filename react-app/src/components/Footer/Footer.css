@@ -1,28 +1,22 @@
 .FooterStyle{
     display: flex;
-    margin-top: 10px;
-    margin-bottom: 10px;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    background-color: #E5D3B3;    
-}
-
-.FooterText{
-    margin-right: 3px;
+    background-color: #E5D3B3;  
+    font-size: large;
+    padding: 5px;
+    font-weight: bold;
 }
 
 .FooterLinkStyle{
     text-decoration: none;
     color: green;
     margin-right: 3px;
-
+    margin-left: 5px;
 }
 
-.FooterStyleRepo{
-    margin-right: 3px;
-}
-
-.FooterContainer {
-    background-color: #E5D3B3;    padding-bottom: 10px;
+.footerContainer {
+    background-color: #E5D3B3;
+    padding: 10px;
 }

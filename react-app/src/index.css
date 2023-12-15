@@ -412,26 +412,26 @@ html{
 
 .landinggifcontainer h1{
   color:  rgb(254, 250, 224);
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 25px;
-padding: 5px;
+padding: 8px;
 }
 
 .landinggifcontainer p {
   color:  rgb(254, 250, 224);
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 25px;
-  padding: 5px;
-
+  padding: 15px;
 }
 
 .landinggifcontainer h2{
   color:  rgb(254, 250, 224);
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 25px;
-  padding: 5px;
+  padding: 8px;
 
 }
+
 
 .pokemonCardHeader{
   display: flex;

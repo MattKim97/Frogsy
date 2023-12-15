@@ -264,6 +264,9 @@ html{
 .cartButtons:hover{
   background: rgb(169, 179, 136);
 }
+.cartButtonsCart:hover{
+  background: rgb(169, 179, 136);
+}
 
 .cartContainer{
  display: flex;
@@ -409,6 +412,24 @@ html{
 
 .landinggifcontainer h1{
   color:  rgb(254, 250, 224);
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 25px;
+padding: 5px;
+}
+
+.landinggifcontainer p {
+  color:  rgb(254, 250, 224);
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 25px;
+  padding: 5px;
+
+}
+
+.landinggifcontainer h2{
+  color:  rgb(254, 250, 224);
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 25px;
+  padding: 5px;
 
 }
 

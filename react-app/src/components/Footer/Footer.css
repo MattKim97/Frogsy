@@ -9,6 +9,7 @@
     font-weight: bold;
 }
 
+
 .FooterLinkStyle{
     text-decoration: none;
     color: green;
@@ -16,7 +17,6 @@
     margin-left: 5px;
 }
 
-.footerContainer {
-    background-color: #E5D3B3;
-    padding: 10px;
+.FooterLinkStyle:hover{
+    color: rgb(169, 179, 136);
 }

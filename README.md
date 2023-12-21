@@ -29,7 +29,10 @@ https://frogsy.onrender.com/
 
 ## Landing Page
 
-On the landing page, we can see the categories nav-bar, a about-us paragraph, and the main view being a gif of a lotad.
+On the landing page, we can see the categories nav-bar, an about us , and the main view being a gif of a lotad.
+
+<img src="images/landingPage1.png" alt="Landing Page" style="width:300;"/>
+<img src="images/landingPage2.png" alt="Landing Page" style="width:300;"/>
 
 ### Front-end
 
@@ -74,4 +77,4 @@ On the landing page, we can see the categories nav-bar, a about-us paragraph, an
 
 ### Front-end
 
-* Follow the README in react-app/ !!
+* Follow the README in react-app/

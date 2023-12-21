@@ -31,8 +31,8 @@ https://frogsy.onrender.com/
 
 On the landing page, we can see the categories nav-bar, an about us , and the main view being a gif of a lotad.
 
-<img src="images/landingPage1.png" alt="Landing Page" style="width:300;"/>
-<img src="images/landingPage2.png" alt="Landing Page" style="width:300;"/>
+<img src="images/LandingPage1.png" alt="Landing Page" style="width:300;"/>
+<img src="images/LandingPage2.png" alt="Landing Page" style="width:300;"/>
 
 ### Front-end
 

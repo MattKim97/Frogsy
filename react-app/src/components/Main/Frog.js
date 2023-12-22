@@ -104,10 +104,10 @@ export default function Frog() {
             <h1>Confirm Delete</h1>
             <p>Are you sure you want to remove this Frog?</p>
             <div className="modalButtons">
-              <button className="deleteButton" onClick={handleDeleteKeep}>
+              <button className="deleteButton" style ={{marginLeft:"20px"}} onClick={handleDeleteKeep}>
                 Yes (Delete Frog)
               </button>
-              <button className="keepButton" onClick={closeModal}>
+              <button className="keepButton" style ={{marginLeft:"20px"}} onClick={closeModal}>
                 No (Keep Frog)
               </button>
             </div>

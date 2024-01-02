@@ -34,7 +34,18 @@ On the landing page, we can see the categories nav-bar, an about us , and the ma
 <img src="images/Landing1.jpg" alt="Landing Page" style="width:300;"/>
 <img src="images/Landing2.jpg" alt="Landing Page" style="width:300;"/>
 
+## Frogs
+
+
+## Cart
+
+
+## Reviews
+
+
 ### Front-end
+
+
 
 *  React
 *  Redux

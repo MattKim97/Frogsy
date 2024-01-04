@@ -35,9 +35,13 @@ On the landing page, we can see the categories nav-bar, an about us , and the ma
 <img src="images/Landing2.jpg" alt="Landing Page" style="width:300;"/>
 
 ## Frogs
+<img src="images/frog-card.png" alt="Landing Page" style="width:300;"/>
+<img src="images/frog-card logged-in.png" alt="Landing Page" style="width:300;"/>
 
 
 ## Cart
+<img src="images/empty cart.png" alt="Landing Page" style="width:300;"/>
+<img src="images/cart with a frog.png" alt="Landing Page" style="width:300;"/>
 
 
 

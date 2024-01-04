@@ -35,12 +35,16 @@ On the landing page, we can see the categories nav-bar, an about us , and the ma
 <img src="images/Landing2.jpg" alt="Landing Page" style="width:300;"/>
 
 ## Frogs
+A Frog's card showing all details of a frog, when user in not logged in.
 <img src="images/frog-card.png" alt="Landing Page" style="width:300;"/>
+A Frog's card showing all details of a frog, and additional buttons when user is logged in.
 <img src="images/frog-card logged-in.png" alt="Landing Page" style="width:300;"/>
 
 
 ## Cart
+The cart when the user has not logged in.
 <img src="images/empty cart.png" alt="Landing Page" style="width:300;"/>
+The cart when the user is logged in, and has added a frog to the cart
 <img src="images/cart with a frog.png" alt="Landing Page" style="width:300;"/>
 
 

@@ -40,8 +40,6 @@ On the landing page, we can see the categories nav-bar, an about us , and the ma
 ## Cart
 
 
-## Reviews
-
 
 ### Front-end
 

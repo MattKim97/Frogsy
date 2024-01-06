@@ -43,11 +43,7 @@ export default function FrogUpdateForm() {
       return updatedFormData;
     });
   };
-  console.log(formData.image);
-  console.log(
-    "🚀 ~ file: FrogUpdateForm.js:66 ~ handleSubmit ~ formData:",
-    formData
-  );
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -62,7 +58,6 @@ export default function FrogUpdateForm() {
     formDataToSend.append("description", formData.description);
     formDataToSend.append("category", formData.category);
     formDataToSend.append("image", formData.image);
-    console.log("🚀 ~ file: FrogUpdateForm.js:66 ~ handleSubmit ~ formDataToSend:", formDataToSend)
 
     if (formData.image) {
       delete formData.image;

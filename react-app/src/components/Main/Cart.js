@@ -16,7 +16,6 @@ export default function Cart() {
   const history = useHistory();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-  console.log("🚀 ~ file: Cart.js:17 ~ Cart ~ cart:", cart);
   const sessionUser = useSelector((state) => state.session.user);
   const [quantity, setQuantity] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -56,7 +55,6 @@ export default function Cart() {
   const handleCheckOut = async () => {
     const response = await dispatch(checkoutThunk());
   
-    console.log("🚀 ~ file: Cart.js:58 ~ handleCheckOut ~ response:", response)
     if (response) {
       history.push("/cart");
       const orderTotal = calculateOrderTotal(cart.items);

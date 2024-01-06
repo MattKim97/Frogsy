@@ -13,9 +13,7 @@ export default function Frog() {
   const history = useHistory();
   const { frogId } = useParams();
   const sessionUser = useSelector((state) => state.session.user);
-  console.log("🚀 ~ file: Frog.js:19 ~ Frog ~ sessionUser:", sessionUser);
   const frogs = Object.values(useSelector((state) => state.frogs));
-  console.log("🚀 ~ file: Frog.js:13 ~ Frog ~ frogs:", frogs);
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
@@ -58,7 +56,6 @@ export default function Frog() {
 
   const frog = frogs.find((frog) => frog.id === +frogId);
 
-  console.log("🚀 ~ file: Frog.js:16 ~ Frog ~ frog:", frog);
 
   if (!frog) {
     return null;

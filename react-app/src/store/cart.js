@@ -80,7 +80,6 @@ export const updateCartThunk = (frogId, quantity) => async (dispatch) => {
   });
   if (response.ok) {
     const cart = await response.json();
-    console.log("Updated Cart:", cart); // Log the updated cart data
     dispatch(updateCart(cart));
   }
 };
@@ -91,7 +90,6 @@ export const checkoutThunk = () => async (dispatch) => {
   });
   if (response.ok) {
     const cart = await response.json();
-    console.log("Checkout Cart:", cart); // Log the updated cart data
     dispatch(checkout(cart));
     return cart;
   }

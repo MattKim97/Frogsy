@@ -8,6 +8,8 @@ favorites = db.Table(
     db.Column('user_id', db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), primary_key=True),
     db.Column('frog_id', db.Integer, db.ForeignKey(add_prefix_for_prod("frogs.id")), primary_key=True),
 )
+if environment == "production":
+    favorites.schema = SCHEMA
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'

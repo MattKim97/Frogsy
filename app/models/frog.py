@@ -35,6 +35,8 @@ class Frog(db.Model):
 
     cart = db.relationship("Cart", secondary=cartItem, back_populates="items")
 
+    favorited_by = db.relationship("User", secondary="favorites", back_populates="favorites")
+    
     def to_dict(self, scope="default"):
         d = {
             "id": self.id,

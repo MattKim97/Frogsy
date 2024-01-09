@@ -8,6 +8,7 @@ import { deleteFrogThunk, getAllFrogsThunk } from "../../store/frogs";
 import { useState } from "react";
 import { useRef } from "react";
 import { addToCartThunk } from "../../store/cart";
+import { setUser } from "../../store/session";
 
 export default function Frog() {
   const history = useHistory();
@@ -19,6 +20,7 @@ export default function Frog() {
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
   const [quantity, setQuantity] = useState(1);
+  const [favorited, setFavorited] = useState(false);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -93,6 +95,40 @@ export default function Frog() {
     openModal();
   };
 
+
+  
+
+  const handleFavorite = async () => {
+    if (sessionUser.favorites.includes(frog.id)) {
+      const res = await fetch(`/api/frogs/${frog.id}/favorite`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ frogId: frog.id }),
+      });
+  
+      if (res.ok) {
+        const updatedUser = await res.json();
+        setFavorited(false);
+        dispatch(setUser(updatedUser));
+      }
+    } else {
+      const res = await fetch(`/api/frogs/${frog.id}/favorite`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ frogId: frog.id }),
+      });
+  
+      if (res.ok) {
+        const updatedUser = await res.json();
+        setFavorited(true);
+        dispatch(setUser(updatedUser));
+      }
+    }
+  };
   return (
     <div className="">
       {isModalOpen && (
@@ -112,30 +148,7 @@ export default function Frog() {
         </div>
       )}
       <div className="frogDetailsContainer">
-        {/* <div className="frogImageContainerDiv">
-          <img
-            src={`${frog.pictureUrl}`}
-            alt={frog.name}
-            className="FrogMainImage"
-          />
-        </div>
-        <div className="FrogDetailsTextContainerDiv">
-          <div>Name: {frog.name}</div>
 
-          <div> Gender: {frog.gender}</div>
-
-          <div> Age: {frog.age}</div>
-
-          <div>Species: {frog.species} </div>
-
-          <div> Price: ${frog.price}</div>
-
-          <div> Stock: {frog.stock > 0 ? frog.stock : "OUT OF STOCK"}</div>
-
-          <div>Description: {frog.description}</div>
-
-          <div>Frog Category: {frog.category}</div>
-        </div> */}
         <div className="pokemonCard">
           <div className="pokemonCardHeader">
             <div className="pokemonCardLeftSide">
@@ -215,6 +228,13 @@ export default function Frog() {
                 <button className="cartButtons" onClick={handleDelete}>
                   Delete
                 </button>
+              </div>
+            ) : null
+          ) : null}
+           {sessionUser ? (
+            sessionUser.id !== frog.owner_id ? (
+              <div>
+                <i  onClick={handleFavorite} class={`fa-star ${favorited ? 'fa-solid' : 'fa-regular'}`}></i>
               </div>
             ) : null
           ) : null}

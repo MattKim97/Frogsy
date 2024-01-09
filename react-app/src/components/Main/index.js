@@ -11,6 +11,7 @@ import MyFrogs from './MyFrogs';
 import FrogForm from './FrogForm';
 import Frog from './Frog';
 import FrogUpdateForm from './FrogUpdateForm';
+import FavoritedFrogs from './FavoritedFrogs';
 
 export default function Main() {
   return (
@@ -38,6 +39,9 @@ export default function Main() {
         </Route>
         <Route exact path='/myfrogs'>
         <MyFrogs/>
+        </Route>
+        <Route exact path='/favorites'>
+        <FavoritedFrogs/>
         </Route>
         <Route exact path='/frogs/new'>
         <FrogForm/>

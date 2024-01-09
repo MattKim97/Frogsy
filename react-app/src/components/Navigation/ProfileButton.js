@@ -25,7 +25,10 @@ function ProfileButton({ user }) {
   const handleSellFrog = () => {
     history.push("/frogs/new");
   };
-
+  
+  const handleFavorites = () => {
+    history.push("/favorites");
+  }
 
   useEffect(() => {
     if (!showMenu) return;
@@ -74,6 +77,7 @@ function ProfileButton({ user }) {
             <li>{user.email}</li>
             <button  className="navigationButtons" onClick={handleUserFrogs}>See My Frogs</button>
             <button className="navigationButtons" onClick={handleSellFrog}>Sell A Frog</button>
+            <button className="navigationButtons" onClick={handleFavorites}>Favorited Frogs</button>
             <button className="logout-button navigationButtons" onClick={handleLogout}>
               Log Out
             </button>

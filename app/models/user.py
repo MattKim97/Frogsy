@@ -2,6 +2,12 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
+favorites = db.Table(
+    'favorites',
+    db.Model.metadata,
+    db.Column('user_id', db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), primary_key=True),
+    db.Column('frog_id', db.Integer, db.ForeignKey(add_prefix_for_prod("frogs.id")), primary_key=True),
+)
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
@@ -18,6 +24,8 @@ class User(db.Model, UserMixin):
     frogs = db.relationship("Frog", back_populates="owner")
 
     cart = db.relationship("Cart", back_populates="user", uselist=False)
+    
+    favorites = db.relationship("Frog", secondary=favorites, back_populates="favorited_by")
     
     @property
     def password(self):
@@ -36,4 +44,5 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email,
             "profilePictureUrl": self.profilePictureUrl,
+            "favorites": [frog.id for frog in self.favorites] if self.favorites else [],
         }

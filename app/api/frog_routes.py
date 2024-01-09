@@ -181,3 +181,37 @@ def add_to_cart(id):
     db.session.commit()
 
     return current_user.cart.to_dict(scope="with_items"), 201
+
+@frog_routes.route('/<int:id>/favorite', methods=['POST'])
+@login_required
+def add_to_favorites(id):
+    """
+    Adds a frog to a user's favorites
+    """
+    frog = Frog.query.get(id)
+
+    # if frog in current_user.favorites:
+    #     return error_message("favorite", "Already favorited"), 401
+    
+    current_user.favorites.append(frog)
+
+    db.session.commit()
+
+    return current_user.to_dict(), 201
+
+@frog_routes.route('/<int:id>/favorite', methods=['DELETE'])
+@login_required
+def remove_from_favorites(id):
+    """
+    Removes a frog from a user's favorites
+    """
+    frog = Frog.query.get(id)
+
+    # if frog not in current_user.favorites:
+    #     return error_message("favorite", "Not favorited"), 401
+    
+    current_user.favorites.remove(frog)
+
+    db.session.commit()
+
+    return current_user.to_dict(), 200

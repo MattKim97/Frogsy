@@ -77,7 +77,7 @@ function ProfileButton({ user }) {
             <li>{user.email}</li>
             <button  className="navigationButtons" onClick={handleUserFrogs}>See My Frogs</button>
             <button className="navigationButtons" onClick={handleSellFrog}>Sell A Frog</button>
-            <button className="navigationButtons" onClick={handleFavorites}>Favorited Frogs</button>
+            <button className="navigationButtons" onClick={handleFavorites}>Favorited</button>
             <button className="logout-button navigationButtons" onClick={handleLogout}>
               Log Out
             </button>

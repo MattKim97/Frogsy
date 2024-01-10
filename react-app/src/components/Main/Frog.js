@@ -58,7 +58,6 @@ export default function Frog() {
 
   const frog = frogs.find((frog) => frog.id === +frogId);
 
-
   if (!frog) {
     return null;
   }
@@ -95,9 +94,6 @@ export default function Frog() {
     openModal();
   };
 
-
-  
-
   const handleFavorite = async () => {
     if (sessionUser.favorites.includes(frog.id)) {
       const res = await fetch(`/api/frogs/${frog.id}/favorite`, {
@@ -107,7 +103,7 @@ export default function Frog() {
         },
         body: JSON.stringify({ frogId: frog.id }),
       });
-  
+
       if (res.ok) {
         const updatedUser = await res.json();
         setFavorited(false);
@@ -121,7 +117,7 @@ export default function Frog() {
         },
         body: JSON.stringify({ frogId: frog.id }),
       });
-  
+
       if (res.ok) {
         const updatedUser = await res.json();
         setFavorited(true);
@@ -137,10 +133,18 @@ export default function Frog() {
             <h1>Confirm Delete</h1>
             <p>Are you sure you want to remove this Frog?</p>
             <div className="modalButtons">
-              <button className="deleteButton" style ={{marginLeft:"20px"}} onClick={handleDeleteKeep}>
+              <button
+                className="deleteButton"
+                style={{ marginLeft: "20px" }}
+                onClick={handleDeleteKeep}
+              >
                 Yes (Delete Frog)
               </button>
-              <button className="keepButton" style ={{marginLeft:"20px"}} onClick={closeModal}>
+              <button
+                className="keepButton"
+                style={{ marginLeft: "20px" }}
+                onClick={closeModal}
+              >
                 No (Keep Frog)
               </button>
             </div>
@@ -148,7 +152,6 @@ export default function Frog() {
         </div>
       )}
       <div className="frogDetailsContainer">
-
         <div className="pokemonCard">
           <div className="pokemonCardHeader">
             <div className="pokemonCardLeftSide">
@@ -186,13 +189,15 @@ export default function Frog() {
             <div>Species: {frog.species}</div>
             <div>Age: {frog.age}</div>
             <div>Category: {frog.category}</div>
-            </div>
+          </div>
           <div className="pokemonCardDescription">
             <p>{frog.description}</p>
-            </div>
+          </div>
         </div>
         <div className="frogDetailsButtons">
-          {sessionUser ? (
+          <div className="addAndStar">
+            <div>
+            {sessionUser ? (
             sessionUser.id !== frog.owner_id ? (
               <div>
                 <input
@@ -206,13 +211,33 @@ export default function Frog() {
               </div>
             ) : null
           ) : null}
-          {sessionUser ? (
-            sessionUser.id !== frog.owner_id ? (
-              <button className="cartButtons" onClick={handleAddToCart}>
-                Add to Cart
-              </button>
-            ) : null
-          ) : null}
+            </div>
+            <div>
+              {sessionUser ? (
+                sessionUser.id !== frog.owner_id ? (
+                  <button className="cartButtons" onClick={handleAddToCart}>
+                    Add to Cart
+                  </button>
+                ) : null
+              ) : null}
+            </div>
+            <div className="myLittleStar">
+              {sessionUser ? (
+                sessionUser.id !== frog.owner_id ? (
+                  <div>
+                    <i
+                      onClick={handleFavorite}
+                      className={`fa-star ${
+                        sessionUser.favorites.includes(frog.id)
+                          ? "fa-solid coloredStar"
+                          : "fa-regular"
+                      }`}
+                    ></i>
+                  </div>
+                ) : null
+              ) : null}
+            </div>
+          </div>
           {sessionUser ? (
             sessionUser.id === frog.owner_id ? (
               <div>
@@ -228,13 +253,6 @@ export default function Frog() {
                 <button className="cartButtons" onClick={handleDelete}>
                   Delete
                 </button>
-              </div>
-            ) : null
-          ) : null}
-           {sessionUser ? (
-            sessionUser.id !== frog.owner_id ? (
-              <div>
-                <i  onClick={handleFavorite} class={`fa-star ${favorited ? 'fa-solid' : 'fa-regular'}`}></i>
               </div>
             ) : null
           ) : null}

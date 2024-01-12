@@ -25,7 +25,6 @@ export default function FavoritedFrogs() {
     return null;
   }
 
-  console.log(sessionUser.favorites)
 
   const favoritedFrogs = frogs.filter(frog => sessionUser.favorites.includes(frog.id));
 

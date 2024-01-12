@@ -47,6 +47,14 @@ The cart when the user has not logged in.
 The cart when the user is logged in, and has added a frog to the cart
 <img src="images/cart with a frog.png" alt="Landing Page" style="width:300;"/>
 
+## Favorites
+How to favorite on Frog's page
+<img src="images/favorites.png" alt="Landing Page" style="width:300;"/>
+What displays when clicking on the favorited frogs button
+<img src="images/favorited.png" alt="Landing Page" style="width:300;"/>
+
+
+
 
 
 ### Front-end

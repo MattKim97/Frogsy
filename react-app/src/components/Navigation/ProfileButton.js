@@ -73,8 +73,8 @@ function ProfileButton({ user }) {
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <li>{user.username}</li>
-            <li>{user.email}</li>
+            <li className="usernameDisplay" alt={user.username}>{user.username}</li>
+            <li className="emailDisplay" alt={user.email}>{user.email}</li>
             <button  className="navigationButtons" onClick={handleUserFrogs}>See My Frogs</button>
             <button className="navigationButtons" onClick={handleSellFrog}>Sell A Frog</button>
             <button className="navigationButtons" onClick={handleFavorites}>Favorited</button>

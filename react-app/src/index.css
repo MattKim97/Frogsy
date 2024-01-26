@@ -578,3 +578,14 @@ padding: 8px;
 .coloredStar{
   color: #6f9580;
 }
+
+.emailDisplay{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.usernameDisplay{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

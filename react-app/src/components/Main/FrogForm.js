@@ -148,6 +148,7 @@ export default function FrogForm() {
                 name="age"
                 value={formData.age}
                 min={1}
+                max={100}
                 onChange={handleInputChange}
             />
             {errors.age && <div className="errors">{errors.age}</div>}
@@ -161,6 +162,7 @@ export default function FrogForm() {
                 name="price"
                 value={formData.price}
                 min={1}
+                max={999999}
                 onChange={handleInputChange}
             />
             {errors.price && <div className="errors">{errors.price}</div>}
@@ -173,6 +175,7 @@ export default function FrogForm() {
                 name="stock"
                 value={formData.stock}
                 min={1}
+                max={999999}
                 onChange={handleInputChange}
             />
             {errors.stock && <div className="errors">{errors.stock}</div>}

@@ -203,6 +203,14 @@ html{
     height: max-content;
    }
 
+   .frogsContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    min-height: 105vh;
+    height: max-content;
+   }
+
    .checkOut{
     display: flex;
     flex-direction: column;

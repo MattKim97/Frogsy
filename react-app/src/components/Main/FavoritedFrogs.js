@@ -38,7 +38,7 @@ export default function FavoritedFrogs() {
           </div>
           ))
         ) : (
-          <div>You have not favorited any Frogs</div>
+          <h2>You have not favorited any Frogs</h2>
         )
       ) : null}
     </div>

@@ -98,7 +98,6 @@ export const deleteFrogThunk = (id) => async (dispatch) => {
 }
 
 
-
 const initialState = {};
 const frogReducer = (state = initialState, action) => {
   switch (action.type) {
